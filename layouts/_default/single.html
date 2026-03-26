@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+
+  <div class="sanity-content">
+    {{/* Vi henter ut slug-navnet fra filen (f.eks. 'arbeider') */}}
+    {{ $currentSlug := .File.TranslationBaseName }}
+
+    {{/* Vi leter i JSON-dataene etter et innlegg med samme slug */}}
+    {{ range .Site.Data.resyme_data.result }}
+      {{ if eq .slug.current $currentSlug }}
+        
+        {{/* Her looper vi gjennom 'body'-feltet fra Sanity */}}
+        {{ range .body }}
+          {{ range .children }}
+            <p>{{ .text }}</p>
+          {{ end }}
+        {{ end }}
+
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <hr style="margin: 40px 0 20px 0; border: 0; border-top: 1px dashed #ccc;">
+  <p><a href="/">← Tilbake til forsiden</a></p>
+</article>
+{{ end }}

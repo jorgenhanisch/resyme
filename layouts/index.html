@@ -1,0 +1,20 @@
+{{ define "main" }}
+<h3>Mer informasjon:</h3>
+<ul>
+  {{ range .Site.Data.resyme_data.result }}
+    <li>
+      <a href="/{{ .slug.current | lower }}/">{{ .title }}</a>
+    </li>
+  {{ end }}
+</ul>
+
+<h1>Velkommen til mitt resyme</h1>
+  
+  <p>
+    Her skriver du din egen tekst som skal ligge fast på forsiden. 
+    Du kan slette denne linjen og skrive akkurat det du vil!
+  </p>
+
+  <hr>
+
+{{ end }}

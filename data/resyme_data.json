@@ -1,0 +1,509 @@
+{
+    "query": "*[_type == \"post\"]",
+    "result": [
+      {
+        "_createdAt": "2026-03-17T18:35:40Z",
+        "_id": "6ab2a222-8f9c-46b2-9b87-ce9fec7758e6",
+        "_rev": "IBkjyLtGi5nfwBpBJ1alTz",
+        "_type": "post",
+        "_updatedAt": "2026-03-17T18:39:34Z",
+        "author": {
+          "_ref": "ed874b8b-82fd-4f6f-a4e1-606da197f948",
+          "_type": "reference"
+        },
+        "body": [
+          {
+            "_key": "aec4a93054f9",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "48885b9f0485",
+                "_type": "span",
+                "marks": [],
+                "text": "Slik kommer du i kontakt med meg"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "4945d788aa55",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "226a5c7db813",
+                "_type": "span",
+                "marks": [],
+                "text": ""
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "16f96eadd268",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "984fdf5fcf54",
+                "_type": "span",
+                "marks": [],
+                "text": "Profesjonelle henvendelser: "
+              }
+            ],
+            "markDefs": [],
+            "style": "h3"
+          },
+          {
+            "_key": "5d7a52ea07b3",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "984fdf5fcf54",
+                "_type": "span",
+                "marks": [],
+                "text": "Gjenom Automedia leverer jeg tjenester innen web, markedsføring, analyse og strategi."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "95301b99898b",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "984fdf5fcf54",
+                "_type": "span",
+                "marks": [],
+                "text": "Telefon dagtid: +47 966 44 001 "
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2210956add82",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "984fdf5fcf54",
+                "_type": "span",
+                "marks": [],
+                "text": "E-post: jorgen@automedia.as"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "4dfbbf664efa",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "c568832996cc",
+                "_type": "span",
+                "marks": [],
+                "text": "Min "
+              },
+              {
+                "_key": "3e791c3686b8",
+                "_type": "span",
+                "marks": [
+                  "959a21a5bdb9"
+                ],
+                "text": "Linkedin profil"
+              },
+              {
+                "_key": "6a90da480dd8",
+                "_type": "span",
+                "marks": [],
+                "text": " er ikke oppdatert på lenge, og således ikke representativ."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "959a21a5bdb9",
+                "_type": "link",
+                "href": "https://www.linkedin.com/in/jorgenhanisch/"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "8682a1d624aa",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "939daee165d4",
+                "_type": "span",
+                "marks": [],
+                "text": "Privat:"
+              }
+            ],
+            "markDefs": [],
+            "style": "h3"
+          },
+          {
+            "_key": "96bc63e9939f",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "939daee165d4",
+                "_type": "span",
+                "marks": [],
+                "text": "Er du en gammel bekjent som øsnker plukke opp tråden eller av andre årsaker ønsker en privat samtale, så kan du får tak i meg på "
+              },
+              {
+                "_key": "11db3c9da733",
+                "_type": "span",
+                "marks": [
+                  "14ef2e542ee1"
+                ],
+                "text": "Facebook Messenger"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "14ef2e542ee1",
+                "_type": "link",
+                "href": "https://www.facebook.com/messages/e2ee/t/9690911830977442"
+              }
+            ],
+            "style": "normal"
+          }
+        ],
+        "categories": [
+          {
+            "_key": "d853ac119871",
+            "_ref": "6311a1c2-febc-4340-a11f-af7f567cdd32",
+            "_type": "reference"
+          }
+        ],
+        "publishedAt": "2026-03-17T18:36:00.000Z",
+        "slug": {
+          "_type": "slug",
+          "current": "kontakt"
+        },
+        "title": "Kontakt"
+      },
+      {
+        "_createdAt": "2026-03-17T18:33:10Z",
+        "_id": "70db88f8-613b-4fc8-b55c-566682314bea",
+        "_rev": "WRmFIxEb6qKYB77yeU5XQC",
+        "_system": {
+          "base": {
+            "id": "70db88f8-613b-4fc8-b55c-566682314bea",
+            "rev": "IBkjyLtGi5nfwBpBJ1aL9j"
+          }
+        },
+        "_type": "post",
+        "_updatedAt": "2026-03-17T18:41:35Z",
+        "author": {
+          "_ref": "ed874b8b-82fd-4f6f-a4e1-606da197f948",
+          "_type": "reference"
+        },
+        "body": [
+          {
+            "_key": "374667b2a1d8",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "669323cb0b26",
+                "_type": "span",
+                "marks": [],
+                "text": "Noen arbeider"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "34668b437725",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "10be1977618b",
+                "_type": "span",
+                "marks": [],
+                "text": "Her er noen jobber og prosjekter som jeg synes er fine å vise frem."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "83add943c833",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "383e5bd668c9",
+                "_type": "span",
+                "marks": [
+                  "38f8bff65008"
+                ],
+                "text": "Automedia AS"
+              },
+              {
+                "_key": "75809d0a7e00",
+                "_type": "span",
+                "marks": [],
+                "text": "Her jobber jeg full tid med nettside, releasing, salg og markedsføring. Selve siden er bygget i Webflow. I Automedia forsto man tidlig verdien av Søkemotoroptimalisering. Virksomheten har har vært aktiv på nett siden 2009, hvilket i seg selv har gitt solid domeneautoritet.Dagens side er bygget etter fossefallsmetoden over de siste 7 år. Det begynte som en ferdig mal, som er blitt utvilket steg for steg, nærmest side for side. Per i dag så har siden nærmere 1000 aktive URLer, som jevnlig oppdateres.Posisjonen i Google gjør at vi kan se effekt av endringer fra dag til dag. Derfor arbeider vi daglig med å oppdatere den mest kritiske informasjonen som priser, egenskaper og nyheter. Dette er den viktigste driveren av interessenter. Vi supplerer med vår egen, unike reklamekanal, reklame på leasingbiler. Disse bilene er det etter hvert blitt så mange av at vi får henvendelser ukentlig av folk som har sett bilene våre. Vi benytter også Facebook og Instagram for betalte plasseringer.Den siste, og kanskje viktigste faktoren for å utløse henvendelser er våre omtaler. Dette er et annet verktøy som Automedia var tidlig ute med å forstå vitkigheten av. Vi er den aktøren som har i særklasse mest positive omtaler, og mest omtaler generelt. Vi vet hvor viktig dette er fordi vi har sett økt respons etter at vi begynte å prioritere dem, men også fordi vi spør alle som har sent oss en forespørsel om hvorfor de gjorde det hos nettopp oss. Over halvtparten svarer på undersøkelsen, og blandt disse så sier nærmere 90% at de valgte oss mot konkurrentene på grunn av omtalene.Det er en plasttform som har en del svært gode egenskaper sammenlignet med mange andre, men det er også noen ulemper."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "38f8bff65008",
+                "_type": "link",
+                "href": "https://automedia.as"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "469589b07ff7",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "985fdcdfa4f8",
+                "_type": "span",
+                "marks": [
+                  "ae4b65e0c515"
+                ],
+                "text": "Lofotfisk.com"
+              },
+              {
+                "_key": "299b5cac63e5",
+                "_type": "span",
+                "marks": [],
+                "text": "Til forskjell fra de fleste butikker på nett, så kan du her handle rett på forsiden. Dette ble valgt helt bevisst da målgruppen kommuniserte problemer med å handle på vanlige nettbutikker der en må lete seg fem til produktet, og så gå gjennom en lang betaingsprosess. Dette gav siden mange trofaste brukere, som naturlig nok også var glade for konkurransedyktuge priser.På denne siden har vi også gjort flere interessante ting. Blandt annet har vi laget vår helt egne kjøliste plugin. Denne sorterer inn ordre etter postordre inn i forhåndsdefinerte regioner. Når varene skal leverers så generer pluginen automatisk en optimal kjørerut i Google Maps.Markedsføringen har vært forbehold Facebook ads. Det skyldes at de fleste nye kunder vi har fått handler på delvis impuls. Da er det eksponeringsmarkedsføring som gjelder.Det siste året har vi jobbet mer med SEO. Og dette har gitt resultater. I april 2025 var nettsiden bestående av kun forside, og systemsider. Da hadde vi i snitt 135 sidevisninger i Google søk, 5 klikk, og rangering i søk på 22,5. All vår trafikk og omsetning kom fra Facebook annonser.Da begynte vi å legge ut oppskrifter, og sende nyhetsbrev, utvikler produktsider og lage prismatriser. Det har gitt en kummulativ effekt der vi nå har over 1000 visninger pr dag, 125 sidebesøk og ligger på 6 plass i totalt søk."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "ae4b65e0c515",
+                "_type": "link",
+                "href": "https://lofotfisk.com"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "65fbe292cde2",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "050505a0f079",
+                "_type": "span",
+                "marks": [
+                  "091eed53d1c3"
+                ],
+                "text": "Ha-bygg.no"
+              },
+              {
+                "_key": "542d3cdd39d3",
+                "_type": "span",
+                "marks": [],
+                "text": "Dette er nettstedet til entrepenøren Hanisch AS. Om du lurer så er det min bror sin virksomhet. Denne siden er laget med et par mål for øyet, og helt spesifikke virkemidler.Virksomheten har mange gode omtaler etter mange års aktivtitet. Men alle disse ligger i den lite tilggengelige løsningen til Mitt anbud. Til forskjell fra Google sine omtaler, så registeres disse dårlig i søk. for å få utnyttet verdien som ligger i disse omtalene, så la jeg dem inn som egne innlegg på siden. Det andre virkemidlet som var viktig å få plass her er hastighet. Siden har meget gode resulater i Google Page Speed insights (Mobil: Performance 76 / Accessibility 86 / Best Practices 100 / SEO 100) , spesielt med tanke på at det er en Wordpress side.Grensesnitt er utarbeidet for å gjøre det enkelt å benytte på mobil, og har derfor velkjente UX elementer fra sosiale medier. Hensikten her er også at siden skal se bra ut og formidel arbeidene bra til tross for ett og annet foto i dårlig kvalitet.Det siste viktige virkemidlet er presentasjon av alle arbeidene. Min bror har vært flink til å ta bilder av omtrent halvtparten av arbeidene som er gjort. Arbeidene er møysoommelig og samvittighetsfullt utført. Dessverre gjenspeiler ikke alle foto dette. Men i egne øyne så mener jeg at visningen på nettsiden viser dem så godt det lar seg gjøre. Bildene vises i originalt format, og flyter naturlig i kolonner og rader ettersom de vises på skjerm eller telefon.Siden er helt ny, så det er for tidlig si noe om posisjon i søk, men jeg skal etter hvert også legge inn strukturerte data for å bøte litt på det."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "091eed53d1c3",
+                "_type": "link",
+                "href": "https://Ha-bygg.no"
+              }
+            ],
+            "style": "normal"
+          }
+        ],
+        "categories": [
+          {
+            "_key": "1a98f04829d9",
+            "_ref": "9feeab42-8e2c-4780-9880-68fbc4fd3aa6",
+            "_type": "reference"
+          }
+        ],
+        "slug": {
+          "_type": "slug",
+          "current": "arbeider"
+        },
+        "title": "Arbeider"
+      },
+      {
+        "_createdAt": "2026-03-17T18:30:45Z",
+        "_id": "98fedddb-07c3-405d-a41d-b27528a0c92c",
+        "_rev": "GXg7Go32TyjyzsCMcbx7xD",
+        "_type": "post",
+        "_updatedAt": "2026-03-17T18:32:47Z",
+        "author": {
+          "_ref": "ed874b8b-82fd-4f6f-a4e1-606da197f948",
+          "_type": "reference"
+        },
+        "body": [
+          {
+            "_key": "6fe32057164c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "225bea84ead9",
+                "_type": "span",
+                "marks": [],
+                "text": "Litt om meg"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "9f50af167398",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "c3474878daea",
+                "_type": "span",
+                "marks": [],
+                "text": "Jeg arbeider hos "
+              },
+              {
+                "_key": "3a9d75a9acf3",
+                "_type": "span",
+                "marks": [
+                  "f02b7f0b5e6d"
+                ],
+                "text": "Automedia"
+              },
+              {
+                "_key": "6abf9e18f57d",
+                "_type": "span",
+                "marks": [],
+                "text": " med web, markedsføring og salg. Jeg er i tillegg engasjert i "
+              },
+              {
+                "_key": "66ef6bd78873",
+                "_type": "span",
+                "marks": [
+                  "2e15ebf2bc50"
+                ],
+                "text": "Lofotfisk"
+              },
+              {
+                "_key": "ace64b07cf32",
+                "_type": "span",
+                "marks": [],
+                "text": " der jeg jobber med de samme oppgavene. Generelt er jeg nysgjerrig og synes det er spennende med ny teknologi. Nå og da, så forsøker jeg å lage ting som jeg kan benytte til eget og andres bruk. Foreløpig er det helt enkle programmer som telefonlister eller enkle plugins som henter og plasserer informasjon rundt omkring i Wordpress."
+              }
+            ],
+            "markDefs": [
+              {
+                "_key": "f02b7f0b5e6d",
+                "_type": "link",
+                "href": "https://automedia.as"
+              },
+              {
+                "_key": "2e15ebf2bc50",
+                "_type": "link",
+                "href": "https://Lofotfisk.com"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "b02abc9c0322",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "570d45d9f2ae",
+                "_type": "span",
+                "marks": [],
+                "text": "Min kompetanse er fordelt over disse emnene:"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "e3a45826b4ad",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "662fb580a09f",
+                "_type": "span",
+                "marks": [],
+                "text": "WebJeg arbeider etter fossefallmetoden, der jeg til en hver tid ser etter hvor er det minste motstands vei for brukerne. Dette gir kan gi uventede utfall, men er alltid effektivt. Ettersom jeg jeg kan HTML og CSS godt, og forstår noe Javascript og php så kan jeg arbeide i de fleste CMSer. Men jeg benytter forskjellige AI verktøy for å løse frontend problemer som tidligere ville kostet meg mange måneder å klare, eller mange, mange tusen å få utviklerer til å fikse."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "59485d34b010",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4cc581152778",
+                "_type": "span",
+                "marks": [],
+                "text": "Markedsføring på nettVeldig mye av dette gjøres på nettsiden. Både teknisk og kommunikasjonsmessig. Det jeg har spesiell interesse for er hvordan budskap brukes for å skape menneskelig og digital oppmerksomhet. En kommer rett og slett ikke utenom å bruke mye tid på søkemotorer og AI systemer om en skal få brukernes oppmerksomhet. Dette kan oppnås med betalte plasseringer, men organisk synlighet er selve målet. Og jeg mener ikke kun digitalt, men i folks bevissthet. De største merkevarene har satt seg i folk hoder, såkalte \"household names\". Dette alltid resultat av regelemssig arbeid over lang tid."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "1ec40cc7f02c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ef99eb561d0f",
+                "_type": "span",
+                "marks": [],
+                "text": "Salg på nettSalg på nett støttes opp av punktene over. Enten du selger direkte på nettsiden, eller kontakter interessenter, så er det essensiellt at du styrer forventninger i kommnikasjonen før du lukker salget. Digtialt så handler det om å besvare alle kritiske spørsmål en interessent har før salget skal gjøres. Er prosessen å lande kunden på telefon, så må du vekke interessen først, og så kan du bli enig i samtale."
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "categories": [
+          {
+            "_key": "65f8864b3466",
+            "_ref": "9bcb5d67-31e5-4028-8bf5-6abad7141df0",
+            "_type": "reference"
+          }
+        ],
+        "publishedAt": "2026-03-17T18:32:00.000Z",
+        "slug": {
+          "_type": "slug",
+          "current": "kompetanse"
+        },
+        "title": "Kompetanse"
+      }
+    ],
+    "syncTags": [
+      "s1:bciWDg"
+    ],
+    "ms": 6
+  }
