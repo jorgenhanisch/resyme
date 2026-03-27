@@ -3,7 +3,7 @@
 <ul>
   {{ range .Site.Data.resyme_data.result }}
     <li>
-      <a href="/{{ .slug.current | lower }}/">{{ .title }}</a>
+      <a href="{{ .slug.current | lower | relURL }}">{{ .title }}</a>
     </li>
   {{ end }}
 </ul>
