@@ -3,32 +3,43 @@
   <h1>{{ .Title }}</h1>
 
   <div class="sanity-content">
-    {{/* Vi henter ut slug-navnet fra filen (f.eks. 'arbeider') */}}
     {{ $currentSlug := .File.TranslationBaseName }}
 
-    {{/* Vi leter i JSON-dataene etter et innlegg med samme slug */}}
+    {{/* 1. Finn riktig dokument i JSON */}}
     {{ range .Site.Data.resyme_data.result }}
       {{ if eq .slug.current $currentSlug }}
         
-        {{/* Her looper vi gjennom 'body'-feltet fra Sanity */}}
+        {{/* 2. Loop gjennom innholdet (body) */}}
         {{ range .body }}
-        {{ if eq ._type "block" }}
-          <p>
-            {{ range .children }}
-              {{ if .marks }}
-                {{/* Her håndterer vi tekst som har "marks" (som lenker eller fet skrift) */}}
-                <strong>{{ .text }}</strong> 
-              {{ else }}
-                {{ .text }}
-              {{ end }}
-            {{ end }}
-          </p>
-        {{ end }}
+          {{ if eq ._type "block" }}
+            <p>
+              {{ $block := . }}
+              {{ range .children }}
+                {{ $markKey := index .marks 0 }}
+                
+                {{ if $markKey }}
+                  {{ $link := "" }}
+                  {{ range $block.markDefs }}
+                    {{ if eq ._key $markKey }}
+                      {{ $link = .href }}
+                    {{ end }}
+                  {{ end }}
         
-      {{ end }}
-
-      {{ end }}
-    {{ end }}
+                  {{ if $link }}
+                    <a href="{{ $link }}" target="_blank" rel="noopener">{{ .text }}</a>
+                  {{ else }}
+                    <strong>{{ .text }}</strong>
+                  {{ end }}
+                {{ else }}
+                  {{ .text }}
+                {{ end }}
+              {{ end }}{{/* end range .children */}}
+            </p>
+          {{ end }}{{/* end if block */}}
+        {{ end }}{{/* end range .body */}}
+             
+      {{ end }}{{/* end if slug match */}}
+    {{ end }}{{/* end range .Site.Data... */}}
   </div>
 
   <hr style="margin: 40px 0 20px 0; border: 0; border-top: 1px dashed #ccc;">
