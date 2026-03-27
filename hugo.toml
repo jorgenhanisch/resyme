@@ -1,4 +1,6 @@
 baseURL = 'https://jorgenhanisch.github.io/resyme/'
-locale = 'en-us'
+locale = 'nb-no'
 title = 'Resyme'
 theme = 'blank'
+[params]
+  sanityUrl = "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type == 'post']"

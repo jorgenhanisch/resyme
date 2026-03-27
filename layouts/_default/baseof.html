@@ -12,8 +12,7 @@
             <h1><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1>
             
             <nav>
-                {{/* Henter menyvalg direkte fra Sanity */}}
-                {{ $url := "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type == "post"]" }}
+                {{ $url := .Site.Params.sanityUrl }}
                 {{ $data := getJSON $url }}
                 <ul>
                     {{ range $data.result }}
