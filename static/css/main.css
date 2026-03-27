@@ -14,7 +14,7 @@ a:hover { text-decoration: underline; }
 ul { padding-left: 20px; }
 li { margin-bottom: 10px; }
 
-article { background: #f9f9f9; padding: 20px; border-radius: 8px; }
+article { }
 
 header { padding: 20px 0px;margin-bottom: 30px;}
 header .container { display: flex; justify-content: space-between; align-items: center;}
