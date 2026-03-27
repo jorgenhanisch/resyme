@@ -12,10 +12,20 @@
         
         {{/* Her looper vi gjennom 'body'-feltet fra Sanity */}}
         {{ range .body }}
-          {{ range .children }}
-            <p>{{ .text }}</p>
-          {{ end }}
+        {{ if eq ._type "block" }}
+          <p>
+            {{ range .children }}
+              {{ if .marks }}
+                {{/* Her håndterer vi tekst som har "marks" (som lenker eller fet skrift) */}}
+                <strong>{{ .text }}</strong> 
+              {{ else }}
+                {{ .text }}
+              {{ end }}
+            {{ end }}
+          </p>
         {{ end }}
+        
+      {{ end }}
 
       {{ end }}
     {{ end }}
