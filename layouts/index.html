@@ -1,19 +1,18 @@
 {{ define "main" }}
-<ul>
-  {{ range .Site.Data.resyme_data.result }}
-    <li>
-      <a href="{{ .slug.current | lower | relURL }}">{{ .title }}</a>
-    </li>
-  {{ end }}
-</ul>
+  <section class="welcome-section">
+    <h1>Velkommen til mitt resyme</h1>
+    
+    <p>
+      Her skriver du din egen tekst som skal ligge fast på forsiden. 
+      Du kan fortelle litt om hvem du er, hva du brenner for, eller 
+      hva målet med dette nettstedet er.
+    </p>
 
-<h1>Velkommen til mitt resyme</h1>
-  
-  <p>
-    Her skriver du din egen tekst som skal ligge fast på forsiden. 
-    Du kan slette denne linjen og skrive akkurat det du vil!
-  </p>
+    <p>
+      Bruk menyen øverst for å navigere mellom mine prosjekter, 
+      min kompetanse og min kontaktinformasjon.
+    </p>
+  </section>
 
-  <hr>
-
+  <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 {{ end }}
