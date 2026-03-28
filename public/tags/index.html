@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="no">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1315&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/resyme/livereload.js?mindelay=10&amp;v=2&amp;port=1315&amp;path=resyme/livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tags | Resyme</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/resyme/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="/resyme">Jørgen Hanisch</a></h1>
+            <div class="logo"><a href="/resyme">Jørgen Hanisch<sup>.no</sup></a></div>
             
             
             <nav>
@@ -30,24 +33,36 @@
                         </li>
                         
                         <li>
-                            <a href="/kontakt">Kontakt</a>
+                            <a href="/resyme/kontakt">Kontakt</a>
                         </li>
                         
                         <li>
-                            <a href="/arbeider">Arbeider</a>
+                            <a href="/resyme/arbeider">Arbeider</a>
                         </li>
                         
                         <li>
-                            <a href="/kompetanse">Kompetanse</a>
+                            <a href="/resyme/kompetanse">Kompetanse</a>
                         </li>
                         
                     </ul>
                 
             </nav>
+            <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
+                <img class="switch-icon" src="/resyme/images/switch.png" alt="Tema bytte ikon">
+            </div>
         </div>
     </header>
 
     <main class="container">
+        <nav class="breadcrumbs" aria-label="Brødsmulesti">
+            
+                
+                <a class="bc-home" href="/" >Hjem</a>
+                <span class="bc-slash">/</span>
+                <span class="bc-title">Tags</span>
+            
+        </nav>
+    
         
 	<main>
 		
@@ -87,5 +102,61 @@
             
         </div>
     </footer>
+    <script>
+        
+        
+        
+        
+        const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+        const body = document.body;
+
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        
+        themeToggleBtn.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        
+        themeToggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                themeToggleBtn.click();
+            }
+        });
+
+        
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        const currentPath = window.location.pathname.replace(/\/$/, "") + "/";
+
+        navLinks.forEach(link => {
+            
+            const linkPath = new URL(link.href).pathname.replace(/\/$/, "") + "/";
+
+            
+            if (currentPath === linkPath) {
+                link.classList.add('current');
+            } 
+            
+            
+            
+            const isHome = currentPath.endsWith('/resyme/') || currentPath === '/';
+            const isHomeLink = linkPath.endsWith('/resyme/') || linkPath === '/';
+
+            if (isHome && isHomeLink) {
+                link.classList.add('current');
+            }
+        });
+    </script>
 </body>
 </html>

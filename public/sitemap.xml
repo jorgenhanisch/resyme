@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1315/arbeider/</loc>
+    <loc>http://localhost:1315/resyme/arbeider/</loc>
   </url><url>
-    <loc>http://localhost:1315/categories/</loc>
+    <loc>http://localhost:1315/resyme/categories/</loc>
   </url><url>
-    <loc>http://localhost:1315/kompetanse/</loc>
+    <loc>http://localhost:1315/resyme/kompetanse/</loc>
   </url><url>
-    <loc>http://localhost:1315/kontakt/</loc>
+    <loc>http://localhost:1315/resyme/kontakt/</loc>
   </url><url>
-    <loc>http://localhost:1315/</loc>
+    <loc>http://localhost:1315/resyme/</loc>
   </url><url>
-    <loc>http://localhost:1315/tags/</loc>
+    <loc>http://localhost:1315/resyme/tags/</loc>
   </url>
 </urlset>

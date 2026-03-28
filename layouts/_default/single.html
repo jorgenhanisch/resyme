@@ -31,39 +31,43 @@
               {{ else if eq .style "h4" }}
                 <h4>{{ range .children }}{{ .text }}{{ end }}</h4>
         
-              {{/* HÅNDTERING AV VANLIG TEKST OG LISTER */}}
-              {{ else }}
-                {{ if .listItem }}
-                  {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
+                {{/* HÅNDTERING AV VANLIG TEKST OG LISTER */}}
                 {{ else }}
-                  <p>
-                {{ end }}
-        
-                {{/* Render tekstbiter og lenker (children) */}}
-                {{ $block := . }}
-                {{ range .children }}
-                  {{ $markKey := index .marks 0 }}
-                  {{ if $markKey }}
-                    {{ $link := "" }}
-                    {{ range $block.markDefs }}
-                      {{ if eq ._key $markKey }}{{ $link = .href }}{{ end }}
-                    {{ end }}
-                    {{ if $link }}
-                      <a href="{{ $link }}" target="_blank" rel="noopener">{{ .text }}</a>
-                    {{ else }}
-                      <strong>{{ .text }}</strong>
-                    {{ end }}
+                  {{ if .listItem }}
+                    {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
                   {{ else }}
-                    {{ .text }}
+                    <p>
                   {{ end }}
-                {{ end }}
-        
-                {{ if .listItem }}
-                  {{ if eq .listItem "bullet" }}</li></ul>{{ else }}</li></ol>{{ end }}
-                {{ else }}
-                  </p>
-                {{ end }}
-              {{ end }}{{/* slutt på style-sjekk */}}
+          
+                  {{/* Render tekstbiter og lenker (children) */}}
+                  {{ $block := . }}
+                  {{ range .children }}
+                    {{ $markKey := index .marks 0 }}
+                    
+                    {{/* 1. Sjekk for lenker eller fet skrift */}}
+                    {{ if $markKey }}
+                      {{ $link := "" }}
+                      {{ range $block.markDefs }}
+                        {{ if eq ._key $markKey }}{{ $link = .href }}{{ end }}
+                      {{ end }}
+                      {{ if $link }}
+                        <a href="{{ $link }}" target="_blank" rel="noopener">{{ .text }}</a>
+                      {{ else }}
+                        <strong>{{ .text }}</strong>
+                      {{ end }}
+                    
+                    {{ else }}
+                      {{/* 2. Vanlig tekst med støtte for linjeskift (Shift+Enter i Sanity) */}}
+                      {{ .text | replaceRE "\n" "<br>" | safeHTML }}
+                    {{ end }}
+                  {{ end }}
+          
+                  {{ if .listItem }}
+                    {{ if eq .listItem "bullet" }}</li></ul>{{ else }}</li></ol>{{ end }}
+                  {{ else }}
+                    </p>
+                  {{ end }}
+                {{ end }}{{/* slutt på style-sjekk */}}
         
             {{ end }}{{/* slutt på _type block */}}
           {{ end }}
