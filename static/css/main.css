@@ -8,17 +8,18 @@ body {
 
 h1 { padding-bottom: 10px; }
 h2, h3 { color: #2c3e50; }
+p { margin:0px 0px 20px 0px;}
 a { color: #3498db; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 ul { padding-left: 20px; }
 li { margin-bottom: 10px; }
 
-article { }
+div.three {columns: 3;gap: 60px;}
 
 header { padding: 20px 0px;margin-bottom: 30px;}
 header .container { display: flex; justify-content: space-between; align-items: center;}
-header h1 { margin: 0; font-size: 1.5rem;}
+header h1 { margin: 0; }
 header h1 a { text-decoration: none; color: #333;}
 
 nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }

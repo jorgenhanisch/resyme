@@ -14,8 +14,10 @@
             
             <nav>
                 {{/* Vi definerer URL-en */}}
-                {{ $url := "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type%20==%20%22post%22]" }}
-                
+                <!--{{ $url := "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type%20==%20%22post%22]" }}-->
+                {{ $query := `*[_type == "post"]` }} 
+                {{ $url := printf "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=%s" (urlquery $query) }}
+
                 {{/* Vi bruker den nye 'resources.GetRemote' metoden */}}
                 {{ $response := resources.GetRemote $url }}
                 
@@ -23,6 +25,9 @@
                 {{ if $response }}
                     {{ $data := $response | transform.Unmarshal }}
                     <ul>
+                        <li>
+                            <a href="/resyme">Hjem</a>
+                        </li>
                         {{ range $data.result }}
                         <li>
                             <a href="{{ .slug.current | lower | relURL }}">{{ .title }}</a>
@@ -42,7 +47,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
+            <p>&copy; {{ now.Format "2006" }} Jørgen Hanisch</p>
+            <!--p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p-->
         </div>
     </footer>
 </body>
