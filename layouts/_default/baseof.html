@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="/resyme">Jørgen Hanisch</a></h1>
+            <div class="logo"><a href="/resyme">Jørgen Hanisch<sup>.no</sup></a></div>
             <!--h1><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1-->
             
             <nav>
@@ -38,10 +41,25 @@
                     <p>Kunne ikke hente meny</p>
                 {{ end }}
             </nav>
+            <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
+                <img class="switch-icon" src="/images/switch.png" alt="Tema-ikon">
+            </div>
         </div>
     </header>
 
     <main class="container">
+        <nav class="breadcrumbs" aria-label="Brødsmulesti">
+            {{ if .IsHome }}
+                {{/* På forsiden viser vi bare 'Hjem' som aktiv tekst */}}
+                <span>Hjem</span>
+            {{ else }}
+                {{/* På alle andre sider viser vi lenke til Hjem + nåværende side */}}
+                <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
+                <span class="bc-slash">/</span>
+                <span class="bc-title">{{ .Title }}</span>
+            {{ end }}
+        </nav>
+    
         {{ block "main" . }}{{ end }}
     </main>
 
@@ -51,5 +69,61 @@
             <!--p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p-->
         </div>
     </footer>
+    <script>
+        //*************************************
+        // switch
+        //*************************************
+        // Finn den nye knappen
+        const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+        const body = document.body;
+
+        // 1. Sjekk om brukeren har valgt tema før
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        // 2. Lytt etter klikk
+        themeToggleBtn.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            // 3. Lagre valget
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // 4. Valgfritt: Gjør knappen klikkbar med Enter-tasten også
+        themeToggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                themeToggleBtn.click();
+            }
+        });
+
+        // --- LOGIKK FOR CURRENT CLASS ---
+        const navLinks = document.querySelectorAll('nav ul li a');
+        // Henter nåværende bane (f.eks. /resyme/ eller /resyme/arbeid/)
+        const currentPath = window.location.pathname.replace(/\/$/, "") + "/";
+
+        navLinks.forEach(link => {
+            // Henter banen fra hver lenke i menyen
+            const linkPath = new URL(link.href).pathname.replace(/\/$/, "") + "/";
+
+            // 1. Sjekk for nøyaktig match (fungerer for alle undersider)
+            if (currentPath === linkPath) {
+                link.classList.add('current');
+            } 
+            
+            // 2. Spesialhåndtering for "Hjem" (hvis du er på forsiden)
+            // Sjekker om nåværende adresse er identisk med din baseURL (f.eks. /resyme/)
+            const isHome = currentPath.endsWith('/resyme/') || currentPath === '/';
+            const isHomeLink = linkPath.endsWith('/resyme/') || linkPath === '/';
+
+            if (isHome && isHomeLink) {
+                link.classList.add('current');
+            }
+        });
+    </script>
 </body>
 </html>

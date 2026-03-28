@@ -1,28 +1,150 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6; 
-    margin: 0px auto; 
-    padding: 20px 20px;
-    color: #333;
-}
+/* help *
+article { border:1px solid red; }
+div { border:1px solid pink; }
+ul { border:1px solid orange; }
+li { border:1px solid yellow; }
+a { border:1px solid blue; }
+p { border:1px solid brown; }
 
+
+/********************************************************************/
+/*                       GLOBAL SETTINGS                            */
+/********************************************************************/
+
+/* GENERAL */
+:root {
+    --bgdark:#000;
+    --pdark:#ccc;
+    --adark:#fff;
+    --logodark:yellow;
+  
+    --bgbright:white;
+    --pbright:#444;
+    --abright:#222;
+    --logobright:magenta;
+    
+    --brightgray:#eee;
+    --lightgray:#999;
+    --gray:#666;
+    --darkgray:#333;
+    
+    --tr0:rgba(255,255,255,0);
+    --tr10:rgba(255,255,255,0.1);
+    --tr25:rgba(255,255,255,0.25);
+    --tr50:rgba(255,255,255,0.50);
+    --tr75:rgba(255,255,255,0.75);
+    --tr1:rgba(255,255,255,1);
+  
+    --black01:rgba(0,0,0,0.1);
+    --black15:rgba(0,0,0,0.15);
+    --black25:rgba(0,0,0,0.25);
+    --black35:rgba(0,0,0,0.35);
+    --black50:rgba(0,0,0,0.5);
+    --black75:rgba(0,0,0,0.75);
+    --black1:rgba(0,0,0,1);
+  
+    --gray01:rgba(128, 128, 128, 0.1);
+    --gray25:rgba(128, 128, 128, 0.25);
+    --gray50:rgba(128, 128, 128, 0.5);
+    --gray75:rgba(128, 128, 128, 0.75);
+    --gray1:rgba(128, 128, 128, 1);
+  }
+
+/********************************************************************/
+/* basics */
+
+body { color: var(--pbright); font-family: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI"; line-height: normal; margin: 0px auto;  padding: 0px 0px; }
 h1 { padding-bottom: 10px; }
-h2, h3 { color: #2c3e50; }
+h2, h3 { }
 p { margin:0px 0px 20px 0px;}
-a { color: #3498db; text-decoration: none; }
+a { text-decoration: none; color:var(--abright);}
 a:hover { text-decoration: underline; }
+ul { }
+li { }
 
-ul { padding-left: 20px; }
-li { margin-bottom: 10px; }
+/* Themes */
+body.dark-mode { background-color: var(--bgdark); color: var(--pdark);}
+body.dark-mode a { color: var(--adark);}
 
+
+/********************************************************************/
+/* footer */
+footer {padding:40px 40px; margin: top 100px !important;}
+
+
+/********************************************************************/
+/* SIDETOPP */
+
+/* header */
+header { padding: 0px 0px; margin-bottom: 0px;  border-bottom:2px solid var(--gray01);}
+header a { display:block; font-weight: 500; padding:60px 10px; }
+header a:hover { text-decoration: none;}
+header .container { display: block; position: relative; }
+header .container .logo { display: inline-block; margin: 0px; padding-left:30px;}
+header .container .logo a { font-size: 1.4em;padding:56px 10px;}
+header .container .logo a sup { font-size: .7em;}
+
+/* Header NAV */
+header nav { display: block; vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
+header nav ul { list-style: none; padding: 0; margin: 0; }
+header nav ul li { display: inline-block; vertical-align: top; margin: 0px -2px;}
+header nav ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0);}
+header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
+header nav ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
+
+/* Header NAV DARK */
+body.dark-mode header .container .logo a { color: var(--adark); }
+body.dark-mode header nav ul li a { color: var(--adark); border-bottom:2px solid var(--gray01);}
+body.dark-mode header nav ul li a:hover { color:var(--bgbright); border-bottom:2px solid var(--gray);}
+body.dark-mode header nav ul li a.current { background:var(--adark); color:var(--abright);border-bottom:2px solid var(--gray01);}
+
+
+/* Switch */
+.theme-toggle-btn { display: inline-block; position: absolute; top:60px; right:40px;cursor: pointer;transition: background-color 0.2s ease; border-radius: 50%;overflow: hidden; border:2px solid var(--brightgray);}
+.theme-toggle-btn:hover {border:2px solid var(--lightgray); }
+
+/* Selve ikonet */
+.switch-icon {width: 14px;  height: 14px; display: block; transition: transform 0.25s; transform: rotate(0deg); }
+body.dark-mode .switch-icon {transform: rotate(180deg);}
+
+/* --- Rotasjons-logikken --- */
+.switch-icon:hover  {  }
+body.dark-mode .switch-icon { }
+
+
+/********************************************************************/
+/* INNHOLD */
+
+/* container*/
+main.container { display:block; padding: 40px 40px; margin:0px 0px; }
+
+/* forside */
+.welcome-section,
+.breadcrumbs,
+footer .container {display:block; width: 100%; max-width: 1400px; margin:0px auto;}
 div.three {columns: 3;gap: 60px;}
 
-header { padding: 20px 0px;margin-bottom: 30px;}
-header .container { display: flex; justify-content: space-between; align-items: center;}
-header h1 { margin: 0; }
-header h1 a { text-decoration: none; color: #333;}
 
-nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
 
-nav a { text-decoration: none; color: #007bff; font-weight: bold;}
-nav a:hover { text-decoration: underline;}
+/********************************************************************/
+/* Pad */
+
+@media (max-width:960px) {
+
+/* content */
+div.three { columns:2; }
+
+}
+
+
+/********************************************************************/
+/* Phone */
+
+@media (max-width:580px) {
+
+/* content */
+div.three { columns:1; }
+
+}
+    
+    
