@@ -31,10 +31,13 @@
                         <li>
                             <a href="/resyme">Hjem</a>
                         </li>
-                        {{ range $data.result }}
-                        <li>
-                            <a href="{{ .slug.current | lower | relURL }}">{{ .title }}</a>
-                        </li>
+                        {{/* Vi sorterer her alle sider (.Pages) etter deres .Title */}}
+                        {{ range sort .Site.RegularPages ".Title" "asc" }}
+                            <li>
+                                <a href="{{ .RelPermalink }}" class="{{ if eq $.RelPermalink .RelPermalink }}current{{ end }}">
+                                    {{ .Title }}
+                                </a>
+                            </li>
                         {{ end }}
                     </ul>
                 {{ else }}
