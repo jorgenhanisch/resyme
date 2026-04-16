@@ -160,9 +160,7 @@ div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0
 .element-wrapper span.css-tag-display {position: absolute;bottom: 0px; right: 0px;}
 
 
-.body-text .element-wrapper:nth-of-type(3),
-.body-text .element-wrapper:nth-of-type(4),
-.body-text .element-wrapper:nth-of-type(5) {display:inline-block;width: 33%;vertical-align: top;}
+.body-text {columns:3;gap:50px;}
 .body-text .element-wrapper:nth-of-type(3) span,
 .body-text .element-wrapper:nth-of-type(4) span,
 .body-text .element-wrapper:nth-of-type(5) span,
