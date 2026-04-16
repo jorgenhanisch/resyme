@@ -1,9 +1,7 @@
 {{ define "main" }}
 <article class="sanity-content">
-  {{/* 1. Hent slug fra filnavnet (f.eks. 'arbeider') */}}
   {{ $currentSlug := .File.TranslationBaseName }}
   
-  {{/* 2. Definer URL og hent data fra Sanity */}}
   {{ $query := `*[_type == "post"]` }}
   {{ $url := printf "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=%s" (urlquery $query) }}
   {{ $response := resources.GetRemote $url }}
@@ -11,7 +9,6 @@
   {{ if $response }}
     {{ $data := $response | transform.Unmarshal }}
     
-    {{/* 3. Finn det dokumentet som matcher slug-en */}}
     {{ range $data.result }}
       {{ if eq .slug.current $currentSlug }}
         
@@ -19,19 +16,28 @@
           <h1>{{ .title }}</h1>
         </div>
 
+        {{/* NY CONTAINER: content-subheader (Henter ut alle H2) */}}
+        <div class="content-subheader">
+          {{ range .body }}
+            {{ if eq .style "h2" }}
+              <h2>{{ range .children }}{{ .text }}{{ end }}</h2>
+            {{ end }}
+          {{ end }}
+        </div>
+
         <div class="body-text">
           {{ range .body }}
             {{ if eq ._type "block" }}
               
-              {{/* SJEKK FOR OVERSKRIFTER (h2, h3, h4) */}}
+              {{/* Vi hopper over h2 her siden den er flyttet opp */}}
               {{ if eq .style "h2" }}
-                <h2>{{ range .children }}{{ .text }}{{ end }}</h2>
+                {{/* Gjør ingenting */}}
+              
               {{ else if eq .style "h3" }}
                 <h3>{{ range .children }}{{ .text }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
                 <h4>{{ range .children }}{{ .text }}{{ end }}</h4>
         
-                {{/* HÅNDTERING AV VANLIG TEKST OG LISTER */}}
                 {{ else }}
                   {{ if .listItem }}
                     {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
@@ -39,12 +45,10 @@
                     <p>
                   {{ end }}
           
-                  {{/* Render tekstbiter og lenker (children) */}}
                   {{ $block := . }}
                   {{ range .children }}
                     {{ $markKey := index .marks 0 }}
                     
-                    {{/* 1. Sjekk for lenker eller fet skrift */}}
                     {{ if $markKey }}
                       {{ $link := "" }}
                       {{ range $block.markDefs }}
@@ -55,9 +59,7 @@
                       {{ else }}
                         <strong>{{ .text }}</strong>
                       {{ end }}
-                    
                     {{ else }}
-                      {{/* 2. Vanlig tekst med støtte for linjeskift (Shift+Enter i Sanity) */}}
                       {{ .text | replaceRE "\n" "<br>" | safeHTML }}
                     {{ end }}
                   {{ end }}
@@ -67,14 +69,13 @@
                   {{ else }}
                     </p>
                   {{ end }}
-                {{ end }}{{/* slutt på style-sjekk */}}
-        
-            {{ end }}{{/* slutt på _type block */}}
+                {{ end }}
+            {{ end }}
           {{ end }}
         </div>
 
-      {{ end }}{{/* slutt på slug match */}}
-    {{ end }}{{/* slutt på range $data.result */}}
+      {{ end }}
+    {{ end }}
 
   {{ else }}
     <p>Beklager, kunne ikke hente innholdet fra Sanity akkurat nå.</p>
