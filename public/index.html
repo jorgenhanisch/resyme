@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-	<meta name="generator" content="Hugo 0.158.0"><script src="/resyme/livereload.js?mindelay=10&amp;v=2&amp;port=1315&amp;path=resyme/livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.158.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resyme</title>
-    <link rel="stylesheet" href="/resyme/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -35,19 +35,19 @@
                         
                         
                             <li>
-                                <a href="/resyme/arbeider/" class="">
+                                <a href="/arbeider/" class="">
                                     Arbeider
                                 </a>
                             </li>
                         
                             <li>
-                                <a href="/resyme/kompetanse/" class="">
+                                <a href="/kompetanse/" class="">
                                     Kompetanse
                                 </a>
                             </li>
                         
                             <li>
-                                <a href="/resyme/kontakt/" class="">
+                                <a href="/kontakt/" class="">
                                     Kontakt
                                 </a>
                             </li>
@@ -56,19 +56,24 @@
                 
             </nav>
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
-                <img class="switch-icon" src="/resyme/images/switch.png" alt="Tema bytte ikon">
+                <img class="switch-icon" src="/images/switch.png" alt="Tema bytte ikon">
+            </div>
+            <div class="burger">
+                <div class="line-one"></div>
+                <div class="line-two"></div>
+                <div class="line-three"></div>
             </div>
         </div>
     </header>
 
+    <nav class="breadcrumbs" aria-label="Brødsmulesti">
+        
+            
+            <span>Hjem</span>
+        
+    </nav>
+
     <main class="container">
-        <nav class="breadcrumbs" aria-label="Brødsmulesti">
-            
-                
-                <span>Hjem</span>
-            
-        </nav>
-    
         
   <section class="welcome-section">
     <h1>Web, salg og markedsføring på nett</h1>
@@ -129,6 +134,8 @@
         });
 
         
+        
+        
         const navLinks = document.querySelectorAll('nav ul li a');
         
         const currentPath = window.location.pathname.replace(/\/$/, "") + "/";
@@ -151,6 +158,64 @@
                 link.classList.add('current');
             }
         });
-    </script>
+
+        
+        
+        
+
+        window.addEventListener('load', function() {
+            
+            const mainContainer = document.querySelector('main');
+            
+            
+            if (!mainContainer) {
+                console.warn("Scriptet fant ingen <main>-tag.");
+                return;
+            }
+
+            
+            const elements = mainContainer.querySelectorAll('h1, h2, h3, p, ul, li');
+
+            elements.forEach(el => {
+                
+                if (el.closest('.css-info-node') || (el.parentElement && el.parentElement.classList.contains('element-wrapper'))) {
+                    return;
+                }
+
+                const style = window.getComputedStyle(el);
+                
+                const data = {
+                    'font-size': style.fontSize,
+                    'font-family': style.fontFamily.split(',')[0].replace(/"/g, ''),
+                    'color': style.color,
+                    'font-weight': style.fontWeight,
+                    'line-height': style.lineHeight,
+                    'display': style.display
+                };
+
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'element-wrapper';
+
+                
+                el.parentNode.insertBefore(wrapper, el);
+
+                
+                const props = ['font-size', 'font-family', 'color', 'font-weight', 'line-height', 'display'];
+                
+                props.forEach(prop => {
+                    const s = document.createElement('span');
+                    s.className = `css-tag-${prop} css-info-node`;
+                    s.textContent = `${prop}: ${data[prop]}`;
+                    
+                    
+                    wrapper.appendChild(s);
+                });
+
+                
+                wrapper.appendChild(el);
+            });
+        });
+     </script>
 </body>
 </html>

@@ -47,22 +47,27 @@
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
                 <img class="switch-icon" src="{{ "images/switch.png" | relURL }}" alt="Tema bytte ikon">
             </div>
+            <div class="burger">
+                <div class="line-one"></div>
+                <div class="line-two"></div>
+                <div class="line-three"></div>
+            </div>
         </div>
     </header>
 
+    <nav class="breadcrumbs" aria-label="Brødsmulesti">
+        {{ if .IsHome }}
+            {{/* På forsiden viser vi bare 'Hjem' som aktiv tekst */}}
+            <span>Hjem</span>
+        {{ else }}
+            {{/* På alle andre sider viser vi lenke til Hjem + nåværende side */}}
+            <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
+            <!--span class="bc-slash">/</span-->
+            <span class="bc-title">{{ .Title }}</span>
+        {{ end }}
+    </nav>
+
     <main class="container">
-        <nav class="breadcrumbs" aria-label="Brødsmulesti">
-            {{ if .IsHome }}
-                {{/* På forsiden viser vi bare 'Hjem' som aktiv tekst */}}
-                <span>Hjem</span>
-            {{ else }}
-                {{/* På alle andre sider viser vi lenke til Hjem + nåværende side */}}
-                <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
-                <span class="bc-slash">/</span>
-                <span class="bc-title">{{ .Title }}</span>
-            {{ end }}
-        </nav>
-    
         {{ block "main" . }}{{ end }}
     </main>
 
@@ -104,7 +109,9 @@
             }
         });
 
+        //*************************************
         // --- LOGIKK FOR CURRENT CLASS ---
+        //*************************************
         const navLinks = document.querySelectorAll('nav ul li a');
         // Henter nåværende bane (f.eks. /resyme/ eller /resyme/arbeid/)
         const currentPath = window.location.pathname.replace(/\/$/, "") + "/";
@@ -127,6 +134,64 @@
                 link.classList.add('current');
             }
         });
-    </script>
+
+        //*************************************
+        // --- VIS CSS EGENSKAPER (Kun i <main>) ---
+        //*************************************
+
+        window.addEventListener('load', function() {
+            // Finn main-taggen først
+            const mainContainer = document.querySelector('main');
+            
+            // Hvis <main> ikke finnes, stopper vi her
+            if (!mainContainer) {
+                console.warn("Scriptet fant ingen <main>-tag.");
+                return;
+            }
+
+            // Velg kun relevante tagger som ligger INNE i <main>
+            const elements = mainContainer.querySelectorAll('h1, h2, h3, p, ul, li');
+
+            elements.forEach(el => {
+                // Sikkerhetssjekk: ikke rør våre egne noder eller allerede innpakkede elementer
+                if (el.closest('.css-info-node') || (el.parentElement && el.parentElement.classList.contains('element-wrapper'))) {
+                    return;
+                }
+
+                const style = window.getComputedStyle(el);
+                
+                const data = {
+                    'font-size': style.fontSize,
+                    'font-family': style.fontFamily.split(',')[0].replace(/"/g, ''),
+                    'color': style.color,
+                    'font-weight': style.fontWeight,
+                    'line-height': style.lineHeight,
+                    'display': style.display
+                };
+
+                // 1. OPPRETT WRAPPER-DIV
+                const wrapper = document.createElement('div');
+                wrapper.className = 'element-wrapper';
+
+                // 2. SETT INN WRAPPER I DOKUMENTET
+                el.parentNode.insertBefore(wrapper, el);
+
+                // 3. GENERER SPANS OG LEGG DEM I WRAPPEREN
+                const props = ['font-size', 'font-family', 'color', 'font-weight', 'line-height', 'display'];
+                
+                props.forEach(prop => {
+                    const s = document.createElement('span');
+                    s.className = `css-tag-${prop} css-info-node`;
+                    s.textContent = `${prop}: ${data[prop]}`;
+                    // Legger til litt luft mellom span-taggene hvis de står på linje
+                    // s.style.marginRight = "8px"; 
+                    wrapper.appendChild(s);
+                });
+
+                // 4. FLYTT DET ORIGINALE ELEMENTET INN I WRAPPEREN
+                wrapper.appendChild(el);
+            });
+        });
+     </script>
 </body>
 </html>

@@ -34,9 +34,9 @@
                 {{/* Gjør ingenting */}}
               
               {{ else if eq .style "h3" }}
-                <h3>{{ range .children }}{{ .text }}{{ end }}</h3>
+                <h3>{{ range .children }}{{ .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
-                <h4>{{ range .children }}{{ .text }}{{ end }}</h4>
+                <h4>{{ range .children }}{{ .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}{{ end }}</h4>
         
                 {{ else }}
                   {{ if .listItem }}
@@ -47,6 +47,7 @@
           
                   {{ $block := . }}
                   {{ range .children }}
+                    {{ $formattedText := .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}
                     {{ $markKey := index .marks 0 }}
                     
                     {{ if $markKey }}
@@ -74,6 +75,8 @@
           {{ end }}
         </div>
 
+      {{ end }}
+    {{ end }}
       {{ end }}
     {{ end }}
 
