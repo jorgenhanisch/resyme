@@ -161,9 +161,6 @@ div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0
 
 
 .body-text {columns:3;gap:50px;}
-.body-text .element-wrapper:nth-of-type(3) span,
-.body-text .element-wrapper:nth-of-type(4) span,
-.body-text .element-wrapper:nth-of-type(5) span,
 .body-text .element-wrapper:nth-of-type(3):before,
 .body-text .element-wrapper:nth-of-type(4):before,
 .body-text .element-wrapper:nth-of-type(5):before {display:none;}
