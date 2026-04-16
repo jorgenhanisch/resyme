@@ -85,8 +85,6 @@ header .container { display: block; position: relative; }
 header .container .logo { display: inline-block; margin: 0px; padding-left:30px;}
 header .container .logo a { font-size: 1.4em;padding:56px 10px;}
 header .container .logo a sup { font-size: .7em;}
-header .container .logo a[href*="artikler"]:before {content:'3';}
-header .container .logo a[href*="kompentanse"]:before {content:'3';}
 
 /* Header NAV */
 header .burger {display: none;}
@@ -96,6 +94,8 @@ header nav ul li { display: inline-block; vertical-align: top; margin: 0px -2px;
 header nav ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0);}
 header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
 header nav ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
+header nav ul li a[href*="artikler"]:before {content:'3';}
+header nav ul li a[href*="kompentanse"]:before {content:'3';}
 
 /* Header DARK */
 body.dark-mode header { border-bottom:2px solid var(--tr10);}
