@@ -91,11 +91,11 @@ header .burger {display: none;}
 header nav { display: block; vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
 header nav ul { list-style: none; padding: 0; margin: 0; }
 header nav ul li { display: inline-block; vertical-align: top; margin: 0px -2px;}
-header nav ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0);}
+header nav ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0); position: relative;}
 header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
 header nav ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
-header nav ul li a[href*="arbeider"]:before {content:'3';}
-header nav ul li a[href*="kompetanse"]:before {content:'3';}
+header nav ul li a[href*="arbeider"]:before,
+header nav ul li a[href*="kompetanse"]:before {content:'3';position:absolute; bottom:10px; left:10px;}
 
 /* Header DARK */
 body.dark-mode header { border-bottom:2px solid var(--tr10);}
