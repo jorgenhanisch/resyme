@@ -161,7 +161,8 @@ div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0
 
 
 .body-text {columns:3;gap:50px;}
-.body-text .element-wrapper:before {display:none;}
+.body-text .element-wrapper:before,
+.body-text .element-wrapper span {display:none;}
 .body-text .element-wrapper ul {display:block;width:auto;}
 
 main.container div.three span,
