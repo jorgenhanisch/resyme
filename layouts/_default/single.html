@@ -16,7 +16,7 @@
           <h1>{{ .title }}</h1>
         </div>
 
-        {{/* NY CONTAINER: content-subheader (Henter ut alle H2) */}}
+        {{/* H2 havner her */}}
         <div class="content-subheader">
           {{ range .body }}
             {{ if eq .style "h2" }}
@@ -25,60 +25,50 @@
           {{ end }}
         </div>
 
+        {{/* Alt annet havner her */}}
         <div class="body-text">
           {{ range .body }}
             {{ if eq ._type "block" }}
-              
-              {{/* Vi hopper over h2 her siden den er flyttet opp */}}
               {{ if eq .style "h2" }}
-                {{/* Gjør ingenting */}}
-              
+                {{/* Vi hopper over H2 her */}}
               {{ else if eq .style "h3" }}
-                <h3>{{ range .children }}{{ .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}{{ end }}</h3>
+                <h3>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
-                <h4>{{ range .children }}{{ .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}{{ end }}</h4>
-        
+                <h4>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h4>
               {{ else }}
-                  {{ if .listItem }}
-                    {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
+                {{/* P, UL, LI etc */}}
+                {{ if .listItem }}
+                  {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
+                {{ else }}
+                  <p>
+                {{ end }}
+                
+                {{ $block := . }}
+                {{ range .children }}
+                  {{ $markKey := index .marks 0 }}
+                  {{ if $markKey }}
+                    {{ $link := "" }}
+                    {{ range $block.markDefs }}{{ if eq ._key $markKey }}{{ $link = .href }}{{ end }}{{ end }}
+                    {{ if $link }}<a href="{{ $link }}" target="_blank">{{ .text }}</a>{{ else }}<strong>{{ .text }}</strong>{{ end }}
                   {{ else }}
-                    <p>
+                    {{ .text | replaceRE "\n" "<br>" | safeHTML }}
                   {{ end }}
-          
-                  {{ $block := . }}
-                  {{ range .children }}
-                    {{ $markKey := index .marks 0 }}
-                    
-                    {{ if $markKey }}
-                      {{ $link := "" }}
-                      {{ range $block.markDefs }}
-                        {{ if eq ._key $markKey }}{{ $link = .href }}{{ end }}
-                      {{ end }}
-                      {{ if $link }}
-                        <a href="{{ $link }}" target="_blank" rel="noopener">{{ .text }}</a>
-                      {{ else }}
-                        <strong>{{ .text }}</strong>
-                      {{ end }}
-                    {{ else }}
-                      {{ .text | replaceRE "\n" "<br>" | safeHTML }}
-                    {{ end }}
-                  {{ end }}
-          
-                  {{ if .listItem }}
-                    {{ if eq .listItem "bullet" }}</li></ul>{{ else }}</li></ol>{{ end }}
-                  {{ else }}
-                    </p>
-                  {{ end }}
+                {{ end }}
+
+                {{ if .listItem }}
+                  {{ if eq .listItem "bullet" }}</li></ul>{{ else }}</li></ol>{{ end }}
+                {{ else }}
+                  </p>
+                {{ end }}
               {{ end }}
             {{ end }}
           {{ end }}
         </div>
 
-      {{ end }}{{/* slutt på slug-sjekk */}}
-    {{ end }}{{/* slutt på range $data.result */}}
-
+      {{ end }}
+    {{ end }}
   {{ else }}
-    <p>Beklager, kunne ikke hente innholdet fra Sanity akkurat nå.</p>
+    <p>Kunne ikke hente data.</p>
   {{ end }}
 </article>
 {{ end }}
