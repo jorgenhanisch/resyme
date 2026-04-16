@@ -38,7 +38,7 @@
               {{ else if eq .style "h4" }}
                 <h4>{{ range .children }}{{ .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}{{ end }}</h4>
         
-                {{ else }}
+              {{ else }}
                   {{ if .listItem }}
                     {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
                   {{ else }}
@@ -47,7 +47,6 @@
           
                   {{ $block := . }}
                   {{ range .children }}
-                    {{ $formattedText := .text | replaceRE "(\r\n|\r|\n)" "<br>" | safeHTML }}
                     {{ $markKey := index .marks 0 }}
                     
                     {{ if $markKey }}
@@ -70,15 +69,13 @@
                   {{ else }}
                     </p>
                   {{ end }}
-                {{ end }}
+              {{ end }}
             {{ end }}
           {{ end }}
         </div>
 
-      {{ end }}
-    {{ end }}
-      {{ end }}
-    {{ end }}
+      {{ end }}{{/* slutt på slug-sjekk */}}
+    {{ end }}{{/* slutt på range $data.result */}}
 
   {{ else }}
     <p>Beklager, kunne ikke hente innholdet fra Sanity akkurat nå.</p>
