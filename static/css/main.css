@@ -95,7 +95,7 @@ header nav ul li a { text-decoration: none; color: var(--abright); width:120px; 
 header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
 header nav ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
 header nav ul li a[href*="lofotfisk"],
-header nav ul li a[href*="ha-bygg"],
+header nav ul li a[href*="habygg"],
 header nav ul li a[href*="markedsforing"],
 header nav ul li a[href*="salg"] {display:none;}
 header nav ul li a[href*="arbeider"]:before,
