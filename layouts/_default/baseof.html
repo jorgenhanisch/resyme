@@ -16,34 +16,28 @@
             <!--h1><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1-->
             
             <nav>
-                {{/* Vi definerer URL-en */}}
-                <!--{{ $url := "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type%20==%20%22post%22]" }}-->
-                {{ $query := `*[_type == "post"]` }} 
-                {{ $url := printf "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=%s" (urlquery $query) }}
-
-                {{/* Vi bruker den nye 'resources.GetRemote' metoden */}}
-                {{ $response := resources.GetRemote $url }}
-                
-                {{/* Vi sjekker om vi faktisk fikk svar fra Sanity før vi prøver å bruke dataene */}}
-                {{ if $response }}
-                    {{ $data := $response | transform.Unmarshal }}
-                    <ul>
-                        <li>
-                            <a href="/resyme">Hjem</a>
-                        </li>
-                        {{/* Vi sorterer her alle sider (.Pages) etter deres .Title */}}
-                        {{ range sort .Site.RegularPages ".Title" "asc" }}
+                <ul>
+                    {{ range .Site.Menus.main }}
+                        {{/* Vi viser bare hovedelementene (de uten parent) */}}
+                        {{ if not .HasChildren }}
+                            {{/* Sjekk om dette er et enkeltelement som f.eks. Kontakt */}}
                             <li>
-                                <a href="{{ .RelPermalink }}" class="{{ if eq $.RelPermalink .RelPermalink }}current{{ end }}">
-                                    {{ .Title }}
+                                <a href="{{ .URL | relURL }}" class="{{ if $.IsMenuCurrent "main" . }}current{{ end }}">
+                                    {{ .Name }}
+                                </a>
+                            </li>
+                        {{ else }}
+                            {{/* Dette er elementer med undersider (Arbeider/Kompetanse) */}}
+                            <li>
+                                <a href="{{ .URL | relURL }}" class="{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}current{{ end }}">
+                                    {{ .Name }}
                                 </a>
                             </li>
                         {{ end }}
-                    </ul>
-                {{ else }}
-                    <p>Kunne ikke hente meny</p>
-                {{ end }}
+                    {{ end }}
+                </ul>
             </nav>
+            
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
                 <img class="switch-icon" src="{{ "images/switch.png" | relURL }}" alt="Tema bytte ikon">
             </div>

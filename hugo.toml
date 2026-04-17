@@ -7,23 +7,18 @@ theme = 'blank'
 
 # Hovedmenyen
 [[menu.main]]
-    name = "Hjem"
-    url = "/"
-    weight = 1
-
-[[menu.main]]
     identifier = "arbeider"
     name = "Arbeider"
-    url = "/arbeider/"
+    url = "/arbeider/automedia/"  # Her peker vi hovedlenken direkte til undersiden
     weight = 2
 
 [[menu.main]]
     identifier = "kompetanse"
     name = "Kompetanse"
-    url = "/kompetanse/"
+    url = "/kompetanse/web/"      # Her peker vi hovedlenken direkte til undersiden
     weight = 3
 
-# Undermeny for Arbeider
+# Undermeny-elementer (disse må ha parent)
 [[menu.main]]
     parent = "arbeider"
     name = "Automedia"
@@ -38,6 +33,24 @@ theme = 'blank'
 
 [[menu.main]]
     parent = "arbeider"
-    name = "HA-Bygg"
+    name = "HA Bygg"
     url = "/arbeider/habygg/"
+    weight = 3
+
+[[menu.main]]
+    parent = "kompetanse"
+    name = "Web"
+    url = "/kompetanse/web/"
+    weight = 1
+
+[[menu.main]]
+    parent = "kompetanse"
+    name = "Markedsføring"
+    url = "/kompetanse/markedsforing/"
+    weight = 2
+
+[[menu.main]]
+    parent = "kompetanse"
+    name = "Salg"
+    url = "/kompetanse/salg/"
     weight = 3
