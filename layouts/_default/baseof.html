@@ -17,6 +17,12 @@
             
             <nav>
                 <ul>
+                    <li>
+                        <a href="/resyme"></a>
+                            Hjem
+                        </a>
+                    </li>
+
                     {{ range .Site.Menus.main }}
                         {{/* Vi viser bare hovedelementene (de uten parent) */}}
                         {{ if not .HasChildren }}
@@ -35,6 +41,11 @@
                             </li>
                         {{ end }}
                     {{ end }}
+                    <li>
+                        <a href="/resyme/kontakt/"></a>
+                            Kontakt
+                        </a>
+                    </li>
                 </ul>
             </nav>
             
