@@ -1,0 +1,4 @@
+---
+title: "Kompetanse"
+slug: "web"
+---

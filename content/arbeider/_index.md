@@ -1,0 +1,4 @@
+---
+title: "Arbeider"
+slug: "automedia"
+---

@@ -1,5 +1,6 @@
 {{ define "main" }}
 <article class="sanity-content">
+  {{/* 1. Vi henter slugen fra filnavnet */}}
   {{ $currentSlug := .File.TranslationBaseName }}
   
   {{ $query := `*[_type == "post"]` }}
@@ -16,7 +17,6 @@
           <h1>{{ .title }}</h1>
         </div>
 
-        {{/* H2 havner her */}}
         <div class="content-subheader">
           {{ range .body }}
             {{ if eq .style "h2" }}
@@ -25,18 +25,16 @@
           {{ end }}
         </div>
 
-        {{/* Alt annet havner her */}}
         <div class="body-text">
           {{ range .body }}
             {{ if eq ._type "block" }}
               {{ if eq .style "h2" }}
-                {{/* Vi hopper over H2 her */}}
+                {{/* H2 er allerede håndtert over */}}
               {{ else if eq .style "h3" }}
                 <h3>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
                 <h4>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h4>
               {{ else }}
-                {{/* P, UL, LI etc */}}
                 {{ if .listItem }}
                   {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
                 {{ else }}
@@ -68,7 +66,7 @@
       {{ end }}
     {{ end }}
   {{ else }}
-    <p>Kunne ikke hente data.</p>
+    <p>Kunne ikke hente data fra Sanity.</p>
   {{ end }}
 </article>
 {{ end }}

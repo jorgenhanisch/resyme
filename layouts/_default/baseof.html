@@ -55,17 +55,38 @@
         </div>
     </header>
 
-    <nav class="breadcrumbs" aria-label="Brødsmulesti">
-        {{ if .IsHome }}
-            {{/* På forsiden viser vi bare 'Hjem' som aktiv tekst */}}
-            <span>Hjem</span>
-        {{ else }}
-            {{/* På alle andre sider viser vi lenke til Hjem + nåværende side */}}
-            <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
-            <!--span class="bc-slash">/</span-->
-            <span class="bc-title">{{ .Title }}</span>
+    <div class="breadcrumb-container container">
+        <nav class="breadcrumbs" aria-label="Brødsmulesti">
+            {{ if .IsHome }}
+                <span>Hjem</span>
+            {{ else }}
+                <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
+                <span class="bc-title">{{ .Title }}</span>
+            {{ end }}
+        </nav>
+
+        {{/* UNDERMENY SOM VISES VED SIDEN AV */}}
+        {{ if or (eq .Section "arbeider") (eq .Section "kompetanse") }}
+        <nav class="sub-navigation">
+            <ul>
+                {{ $currentURL := .RelPermalink }}
+                {{ range (index .Site.Menus "main") }}
+                    {{ if .HasChildren }}
+                        {{ if eq ($.Section | lower) (.Identifier | lower) }}
+                            {{ range .Children }}
+                                <li>
+                                    <a href="{{ .URL }}" class="{{ if eq $currentURL .URL }}active{{ end }}">
+                                        {{ .Name }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </nav>
         {{ end }}
-    </nav>
+    </div>
 
     <main class="container">
         {{ block "main" . }}{{ end }}

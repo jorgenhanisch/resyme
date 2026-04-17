@@ -4,3 +4,40 @@ title = 'Resyme'
 theme = 'blank'
 [params]
   sanityUrl = "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type == 'post']"
+
+# Hovedmenyen
+[[menu.main]]
+    name = "Hjem"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    identifier = "arbeider"
+    name = "Arbeider"
+    url = "/arbeider/"
+    weight = 2
+
+[[menu.main]]
+    identifier = "kompetanse"
+    name = "Kompetanse"
+    url = "/kompetanse/"
+    weight = 3
+
+# Undermeny for Arbeider
+[[menu.main]]
+    parent = "arbeider"
+    name = "Automedia"
+    url = "/arbeider/automedia/"
+    weight = 1
+
+[[menu.main]]
+    parent = "arbeider"
+    name = "Lofotfisk"
+    url = "/arbeider/lofotfisk/"
+    weight = 2
+
+[[menu.main]]
+    parent = "arbeider"
+    name = "HA-Bygg"
+    url = "/arbeider/habygg/"
+    weight = 3
