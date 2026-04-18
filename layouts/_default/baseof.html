@@ -57,7 +57,8 @@
             {{ if .IsHome }}
                 <span>Hjem</span>
             {{ else }}
-                <a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a>
+                <!--a class="bc-home" href="{{ "/" | relURL }}" >Hjem</a-->
+                <a class="bc-home" href="/resyme" >Hjem</a>
                 <span class="bc-title">{{ .Title }}</span>
             {{ end }}
         </nav>
