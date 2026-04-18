@@ -19,12 +19,12 @@
                 <ul>
                     {{ range .Site.Menus.main }}
                         <li>
-                            {{/* Sjekker nøyaktig URL ELLER om vi er i samme seksjon (f.eks. arbeider) */}}
+                            {{/* 1. Sjekk standard aktiv-status */}}
                             {{ $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
                             
-                            {{/* EKSTRA SJEKK: Hvis seksjonsnavnet finnes i URL-en til menyelementet */}}
+                            {{/* 2. Korrigert sjekk: Bruker 'in' i stedet for 'contains' */}}
                             {{ if not $isActive }}
-                                {{ if and (ne .URL "/resyme/") (contains $.RelPermalink (print "/" .Identifier "/")) }}
+                                {{ if and (ne .URL "/resyme/") (in $.RelPermalink (print "/" .Identifier "/")) }}
                                     {{ $isActive = true }}
                                 {{ end }}
                             {{ end }}
