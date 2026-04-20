@@ -147,7 +147,6 @@ body.dark-mode .breadcrumbs { border-bottom:2px solid var(--tr10);}
 body.dark-mode h1 { border-bottom: 2px solid var(--tr10);}
 body.dark-mode h2 { border-bottom: 2px solid var(--tr10); }
 
-
 /* forside */
 .welcome-section,
 .sanity-content,
@@ -179,7 +178,7 @@ div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0
 .body-text {columns:2;gap:60px;}
 .body-text .element-wrapper:before,
 .body-text .element-wrapper span {display:none;}
-.body-text .element-wrapper ul {display:block;width:auto;}
+.body-text .element-wrapper ul {display:block;width:auto; padding: 10px 0px; border-top: 2px solid var(--gray);}
 
 main.container div.three span,
 footer div span {display: none;}
