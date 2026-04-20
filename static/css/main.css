@@ -123,8 +123,8 @@ body.dark-mode .switch-icon { }
 /* --- Breadcrumbs --- */
 .breadcrumb-container {display:block; width: 100%; max-width: 2000px; margin:0px auto; border-bottom:2px solid var(--gray01);}
 .breadcrumbs { display: inline-block;padding: 0px 40px; margin:0px 0px; }
+.breadcrumb-container  span,
 .breadcrumb-container a { display:inline-block; padding: 20px 0px; margin-right: 40px;}
-.breadcrumbs span { display:inline-block; padding: 0px 0px; margin-right: 40px;}
 
 /* --- SubNAV --- */
 nav.sub-navigation { display:inline-block; padding: 0px 0px; margin:0px 0px; }
