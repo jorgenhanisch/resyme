@@ -26,39 +26,64 @@
         </div>
 
         <div class="body-text">
-          {{ range .body }}
+          {{ range $index, $block := .body }}
             {{ if eq ._type "block" }}
-              {{ if eq .style "h2" }}
-                {{/* H2 er allerede håndtert over */}}
+              
+              {{/* Håndtering av lister (UL/OL) */}}
+              {{ if .listItem }}
+                {{/* Sjekk om dette er starten på en ny liste */}}
+                {{ $prev := index $.body (sub $index 1) }}
+                {{ if or (not $prev) (not $prev.listItem) }}
+                  {{ if eq .listItem "bullet" }}<ul>{{ else }}<ol>{{ end }}
+                {{ end }}
+
+                <li>
+                  {{ range .children }}
+                    {{ render (dict "child" . "block" $block) }}
+                  {{ end }}
+                </li>
+
+                {{/* Sjekk om dette er slutten på listen */}}
+                {{ $next := index $.body (add $index 1) }}
+                {{ if or (not $next) (not $next.listItem) }}
+                  {{ if eq .listItem "bullet" }}</ul>{{ else }}</ol>{{ end }}
+                {{ end }}
+
               {{ else if eq .style "h3" }}
                 <h3>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
                 <h4>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h4>
-              {{ else }}
-                {{ if .listItem }}
-                  {{ if eq .listItem "bullet" }}<ul><li>{{ else }}<ol><li>{{ end }}
-                {{ else }}
-                  <p>
-                {{ end }}
-                
-                {{ $block := . }}
-                {{ range .children }}
-                  {{ $markKey := index .marks 0 }}
-                  {{ if $markKey }}
-                    {{ $link := "" }}
-                    {{ range $block.markDefs }}{{ if eq ._key $markKey }}{{ $link = .href }}{{ end }}{{ end }}
-                    {{ if $link }}<a href="{{ $link }}" target="_blank">{{ .text }}</a>{{ else }}<strong>{{ .text }}</strong>{{ end }}
-                  {{ else }}
-                    {{ .text | replaceRE "\n" "<br>" | safeHTML }}
-                  {{ end }}
-                {{ end }}
+              {{ else if ne .style "h2" }}
+                <p>
+                  {{ range .children }}
+                    {{/* Sjekk for linker og tekstformatering */}}
+                    {{ $child := . }}
+                    {{ $mark := index .marks 0 }}
+                    
+                    {{ if $mark }}
+                      {{ $link := "" }}
+                      {{ range $block.markDefs }}
+                        {{ if eq ._key $mark }}{{ $link = .href }}{{ end }}
+                      {{ end }}
 
-                {{ if .listItem }}
-                  {{ if eq .listItem "bullet" }}</li></ul>{{ else }}</li></ol>{{ end }}
-                {{ else }}
-                  </p>
-                {{ end }}
+                      {{ if $link }}
+                        <a href="{{ $link }}" target="_blank">{{ $child.text }}</a>
+                      {{ else if eq $mark "strong" }}
+                        <strong>{{ $child.text }}</strong>
+                      {{ else if eq $mark "em" }}
+                        <em>{{ $child.text }}</em>
+                      {{ else if eq $mark "underline" }}
+                        <span style="text-decoration: underline;">{{ $child.text }}</span>
+                      {{ else }}
+                        {{ $child.text }}
+                      {{ end }}
+                    {{ else }}
+                      {{ .text | replaceRE "\n" "<br>" | safeHTML }}
+                    {{ end }}
+                  {{ end }}
+                </p>
               {{ end }}
+
             {{ end }}
           {{ end }}
         </div>
