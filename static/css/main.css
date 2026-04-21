@@ -138,8 +138,8 @@ nav.sub-navigation ul li { display:inline-block; padding: 0px 0px; margin-right:
 
 /* container*/
 main.container { display:block; padding: 0px 40px 40px 40px; margin:0px 0px; }
-h1 { padding:50px 40px 100px 40px; }
-h2 { padding:50px 40px 60px 40px; }
+h1 { padding:50px 0px 100px 0px; }
+h2 { padding:50px 0px 60px 0px; }
 h3 { padding:20px 0px;}
 
 /* container dark mode*/
