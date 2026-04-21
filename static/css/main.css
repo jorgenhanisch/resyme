@@ -177,7 +177,7 @@ div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0
 .element-wrapper span.css-tag-display {position: absolute;bottom: 0px; right: 0px;}
 
 
-.body-text {columns:2; gap:60px; padding: 30px 0px;}
+.body-text {columns:2; gap:60px; padding: 30px 0px; border-top:1px solid var(--gray01); }
 .body-text .element-wrapper:before,
 .body-text .element-wrapper span {display:none;}
 .body-text .element-wrapper ul {display:block;width:auto; padding: 10px 0px; }
