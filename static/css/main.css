@@ -153,7 +153,8 @@ body.dark-mode h2 { border-bottom: 2px solid var(--tr10); }
 footer .container {display:block; width: 100%; max-width: 2000px; margin:0px auto;}
 div.three {columns: 3;gap: 60px; padding: 50px 0px; border-top:1px solid var(--gray01); }
 .welcome-section h2 { margin-bottom: 0px;}
-div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid; border-bottom: 2px solid var(--gray01);}
+div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid;}
+div.body-text ul li { padding: 10px 0px; border-bottom: 2px solid var(--gray01);}
 div.body-text p {margin:0px 0% 0px 0%; padding:10px 0px; margin:0px 0px; vertical-align: top;list-style: none;  break-inside: avoid;}
 div.body-text ul strong:first-of-type, 
 div.body-text p strong:first-of-type,
