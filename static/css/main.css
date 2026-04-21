@@ -61,7 +61,7 @@ h3 { font-size: 28px;font-weight: 500;}
 p { margin:0px 0px 20px 0px; line-height: 1.5em;}
 a { text-decoration: none; color:var(--abright);}
 a:hover { text-decoration: underline; }
-ul { }
+ul { line-height: 1.5em; }
 li { }
 
 /* Themes */
@@ -175,7 +175,7 @@ div.three {columns: 3;gap: 60px; padding: 50px 0px; border-top:1px solid var(--g
 div.body-text { columns:2; gap:100px; padding: 30px 0px; border-top:1px solid var(--gray01); }
 div.body-text p {margin:0px 0% 0px 0%; padding:10px 0px; margin:0px 0px; vertical-align: top;list-style: none;  break-inside: avoid;}
 div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid;}
-div.body-text ul li { padding: 10px 0px; border-bottom: 2px solid var(--gray01);}
+div.body-text ul li { padding: 16px 0px; border-bottom: 1px solid var(--gray25);}
 div.body-text ul li em { font-style: normal; font-weight: 600; width: 40%;}
 div.body-text ul strong:first-of-type, 
 div.body-text p strong:first-of-type,
