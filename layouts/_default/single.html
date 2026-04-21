@@ -1,6 +1,5 @@
 {{ define "main" }}
 <article class="sanity-content">
-  {{/* 1. Vi henter slugen fra filnavnet */}}
   {{ $currentSlug := .File.TranslationBaseName }}
   
   {{ $query := `*[_type == "post"]` }}
@@ -12,6 +11,7 @@
     
     {{ range $data.result }}
       {{ if eq .slug.current $currentSlug }}
+        {{ $post := . }}
         
         <div class="content-header">
           <h1>{{ .title }}</h1>
@@ -26,17 +26,16 @@
         </div>
 
         <div class="body-text">
-          {{ range $index, $block := .body }}
+          {{ $bodyData := .body }}
+          {{ range $index, $block := $bodyData }}
             {{ if eq ._type "block" }}
               
-              {{/* --- LISTE-LOGIKK (UL/OL) --- */}}
+              {{/* --- LISTE-LOGIKK --- */}}
               {{ if .listItem }}
-                {{/* Sjekk om dette er starten på en ny liste ved å se på forrige element */}}
-                {{ $prevIndex := sub $index 1 }}
                 {{ $isFirst := true }}
-                {{ if ge $prevIndex 0 }}
-                    {{ $prev := index $.body $prevIndex }}
-                    {{ if $prev.listItem }}{{ $isFirst = false }}{{ end }}
+                {{ if gt $index 0 }}
+                  {{ $prev := index $bodyData (sub $index 1) }}
+                  {{ if isset $prev "listItem" }}{{ $isFirst = false }}{{ end }}
                 {{ end }}
 
                 {{ if $isFirst }}
@@ -46,42 +45,37 @@
                 <li>
                   {{ range .children }}
                     {{ $child := . }}
-                    {{ $mark := "" }}{{ if .marks }}{{ $mark = index .marks 0 }}{{ end }}
+                    {{ $mark := "" }}{{ if and .marks (gt (len .marks) 0) }}{{ $mark = index .marks 0 }}{{ end }}
                     
                     {{ if $mark }}
-                        {{ $link := "" }}
+                      {{ $link := "" }}
+                      {{ if $block.markDefs }}
                         {{ range $block.markDefs }}{{ if eq ._key $mark }}{{ $link = .href }}{{ end }}{{ end }}
+                      {{ end }}
 
-                        {{ if $link }}
-                            <a href="{{ $link }}" target="_blank">{{ $child.text }}</a>
-                        {{ else if eq $mark "strong" }}
-                            <strong>{{ $child.text }}</strong>
-                        {{ else if eq $mark "em" }}
-                            <em>{{ $child.text }}</em>
-                        {{ else if eq $mark "underline" }}
-                            <span style="text-decoration: underline;">{{ $child.text }}</span>
-                        {{ else }}
-                            {{ $child.text }}
-                        {{ end }}
+                      {{ if $link }}
+                        <a href="{{ $link }}" target="_blank">{{ $child.text }}</a>
+                      {{ else if eq $mark "strong" }}<strong>{{ $child.text }}</strong>
+                      {{ else if eq $mark "em" }}<em>{{ $child.text }}</em>
+                      {{ else if eq $mark "underline" }}<span style="text-decoration: underline;">{{ $child.text }}</span>
+                      {{ else }}{{ $child.text }}{{ end }}
                     {{ else }}
-                        {{ .text | replaceRE "\n" "<br>" | safeHTML }}
+                      {{ .text | replaceRE "\n" "<br>" | safeHTML }}
                     {{ end }}
                   {{ end }}
                 </li>
 
-                {{/* Sjekk om dette er slutten på listen ved å se på neste element */}}
-                {{ $nextIndex := add $index 1 }}
                 {{ $isLast := true }}
-                {{ if lt $nextIndex (len $.body) }}
-                    {{ $next := index $.body $nextIndex }}
-                    {{ if $next.listItem }}{{ $isLast = false }}{{ end }}
+                {{ if lt (add $index 1) (len $bodyData) }}
+                  {{ $next := index $bodyData (add $index 1) }}
+                  {{ if isset $next "listItem" }}{{ $isLast = false }}{{ end }}
                 {{ end }}
 
                 {{ if $isLast }}
                   {{ if eq .listItem "bullet" }}</ul>{{ else }}</ol>{{ end }}
                 {{ end }}
 
-              {{/* --- VANLIG TEKST OG OVERSKRIFTER --- */}}
+              {{/* --- OVERSKRIFTER OG PARAGRAFER --- */}}
               {{ else if eq .style "h3" }}
                 <h3>{{ range .children }}{{ .text | safeHTML }}{{ end }}</h3>
               {{ else if eq .style "h4" }}
@@ -90,25 +84,22 @@
                 <p>
                   {{ range .children }}
                     {{ $child := . }}
-                    {{ $mark := "" }}{{ if .marks }}{{ $mark = index .marks 0 }}{{ end }}
+                    {{ $mark := "" }}{{ if and .marks (gt (len .marks) 0) }}{{ $mark = index .marks 0 }}{{ end }}
                     
                     {{ if $mark }}
-                        {{ $link := "" }}
+                      {{ $link := "" }}
+                      {{ if $block.markDefs }}
                         {{ range $block.markDefs }}{{ if eq ._key $mark }}{{ $link = .href }}{{ end }}{{ end }}
+                      {{ end }}
 
-                        {{ if $link }}
-                            <a href="{{ $link }}" target="_blank">{{ $child.text }}</a>
-                        {{ else if eq $mark "strong" }}
-                            <strong>{{ $child.text }}</strong>
-                        {{ else if eq $mark "em" }}
-                            <em>{{ $child.text }}</em>
-                        {{ else if eq $mark "underline" }}
-                            <span style="text-decoration: underline;">{{ $child.text }}</span>
-                        {{ else }}
-                            {{ $child.text }}
-                        {{ end }}
+                      {{ if $link }}
+                        <a href="{{ $link }}" target="_blank">{{ $child.text }}</a>
+                      {{ else if eq $mark "strong" }}<strong>{{ $child.text }}</strong>
+                      {{ else if eq $mark "em" }}<em>{{ $child.text }}</em>
+                      {{ else if eq $mark "underline" }}<span style="text-decoration: underline;">{{ $child.text }}</span>
+                      {{ else }}{{ $child.text }}{{ end }}
                     {{ else }}
-                        {{ .text | replaceRE "\n" "<br>" | safeHTML }}
+                      {{ .text | replaceRE "\n" "<br>" | safeHTML }}
                     {{ end }}
                   {{ end }}
                 </p>
