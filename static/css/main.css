@@ -177,6 +177,7 @@ div.body-text p {margin:0px 0% 0px 0%; padding:10px 0px; margin:0px 0px; vertica
 div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid;}
 div.body-text ul li { padding: 16px 0px; border-bottom: 1px solid var(--gray25);}
 div.body-text ul li em { font-style: normal; font-weight: 600; width: 40%;}
+div.body-text ul li:first-of-type { padding: 0px 0px; } 
 div.body-text ul strong:first-of-type, 
 div.body-text p strong:first-of-type,
 div.body-text ul a:first-of-type {display:block; font-size:1.2em; padding:10px 0px; font-weight: normal;}
