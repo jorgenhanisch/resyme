@@ -41,6 +41,17 @@
                 </ul>
             </nav>
             
+            <div class="mobile-overlay" id="mobileMenu">
+                <nav>
+                    <ul>
+                        <li><a href="/resyme">Hjem</a></li>
+                        {{ range .Site.Menus.main }}
+                            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </nav>
+            </div>
+            
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
                 <img class="switch-icon" src="{{ "images/switch.png" | relURL }}" alt="Tema bytte ikon">
             </div>
