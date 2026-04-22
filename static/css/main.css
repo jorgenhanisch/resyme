@@ -196,6 +196,9 @@ footer div span {display: none;}
 
 @media (max-width:960px) {
 
+h1 { font-size:80px;}
+h2 { font-size:40px;}
+
 /* BURGER */
 header .burger {display: inline-block; width: 40px; height:21px;position: absolute; right: 100px; top: 60px; cursor:pointer; }
 header .burger div {display:block; width:auto; height:4px;margin-bottom:3px; background: var(--abright);}
@@ -227,7 +230,10 @@ div.three { columns: 2; }
 
 @media (max-width:580px) {
 
-/* content */
+/* Basics */
+h1 { font-size:60px;}
+h2 { font-size:30px;}
+
 /* content */
 div.three { columns: 1; } 
 div.body-text { columns:1; }
