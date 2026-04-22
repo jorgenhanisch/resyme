@@ -197,7 +197,7 @@ footer div span {display: none;}
 @media (max-width:960px) {
 
 /* BURGER */
-header .burger {display: inline-block; width: 40px; height:21px;position: absolute; right: 100px; top: 65px; cursor:pointer; }
+header .burger {display: inline-block; width: 40px; height:21px;position: absolute; right: 100px; top: 60px; cursor:pointer; }
 header .burger div {display:block; width:auto; height:4px;margin-bottom:3px; background: var(--abright);}
 .burger.active .line-one {transform: rotate(-45deg) translate(-4px, 6px);}
 .burger.active .line-two {opacity: 0;}
@@ -207,8 +207,8 @@ body.dark-mode header .burger div { background: var(--adark);}
 /* NAV */
 .screen,
 .breadcrumb-container {display: none;}
-header nav.mobile-overlay { top:160px; opacity:1; position: fixed; padding: 40px 40px; width: auto; height: 100vh; right: 0px; left: 0px; background: var(--darkgray);z-index: 2; transition:0.2s; }
-header nav.mobile-overlay.hidden { top:160px; opacity:0; display:none}
+header nav.mobile-overlay { top:140px; opacity:1; position: fixed; padding: 40px 40px; width: auto; height: 100vh; right: 0px; left: 0px; background: var(--darkgray);z-index: 2; transition:0.2s; }
+header nav.mobile-overlay.hidden { top:160px; opacity:0; z-index:0;}
 header nav.mobile-overlay,
 header nav.mobile-overlay ul,
 header nav.mobile-overlay ul li,
