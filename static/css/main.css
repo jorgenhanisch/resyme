@@ -197,17 +197,18 @@ footer div span {display: none;}
 @media (max-width:960px) {
 
 /* BURGER */
-header .burger {display: inline-block; width: 40px; height:21px;position: absolute; right: 100px; top: 65px;}
+header .burger {display: inline-block; width: 40px; height:21px;position: absolute; right: 100px; top: 65px; cursor:pointer; }
 header .burger div {display:block; width:auto; height:4px;margin-bottom:3px; background: var(--abright);}
-.burger.active .line-one {transform: rotate(-45deg) translate(-5px, 6px);}
+.burger.active .line-one {transform: rotate(-45deg) translate(-4px, 6px);}
 .burger.active .line-two {opacity: 0;}
-.burger.active .line-three {transform: rotate(45deg) translate(-5px, -6px);}
+.burger.active .line-three {transform: rotate(45deg) translate(-3px, -6px);}
 body.dark-mode header .burger div { background: var(--adark);}
 
 /* NAV */
-.screen {display: none;}
+.screen,
+.breadcrumb-container.hide {display: none;}
 .mobile-overlay.hidden { top:50px; opacity:0; position: fixed; padding: 40px 40px; width: 100%; height: 100vh; background: var(--darkgray);z-index: 2;}
-.mobile-overlay {  top:0px; position: fixed; padding: 40px 40px; width: 100%; height: 100vh; background: var(--darkgray);z-index: 2;}
+.mobile-overlay { display: block; top:0px; position: fixed; padding: 40px 40px; width: 100%; height: 100vh; background: var(--darkgray);z-index: 2;}
 .mobile-overlay nav {width:auto; text-align: left; right:0px; left:0px; }
 .mobile-overlay nav,
 .mobile-overlay nav ul,
