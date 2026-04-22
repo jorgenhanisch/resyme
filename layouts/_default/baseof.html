@@ -211,6 +211,27 @@
                 wrapper.appendChild(el);
             });
         });
+
+        // --- MOBILMENY LOGIKK ---
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('header nav ul');
+        const navLinks = document.querySelectorAll('header nav ul li');
+
+        burger.addEventListener('click', () => {
+            // Toggle Meny
+            nav.classList.toggle('nav-active');
+
+            // Burger Animasjon
+            burger.classList.toggle('toggle');
+        });
+
+        // Lukk menyen hvis man klikker på en lenke
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            });
+        });
      </script>
 </body>
 </html>
