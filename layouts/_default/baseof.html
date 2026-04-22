@@ -15,7 +15,7 @@
             <div class="logo"><a href="/resyme">Jørgen Hanisch<sup>.no</sup></a></div>
             <!--h1><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1-->
             
-            <nav class="screen">
+            <nav class="screen" >
                 <ul>
                     <li><a href="/resyme">Hjem</a></li>
 
@@ -72,7 +72,7 @@
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
                 <img class="switch-icon" src="{{ "images/switch.png" | relURL }}" alt="Tema bytte ikon">
             </div>
-            <div class="burger">
+            <div class="burger" id="burgerBtn">
                 <div class="line-one"></div>
                 <div class="line-two"></div>
                 <div class="line-three"></div>
@@ -80,7 +80,7 @@
         </div>
     </header>
 
-    <div class="breadcrumb-container container">
+    <div class="breadcrumb-container container" id="bcContainer">
         <nav class="breadcrumbs" aria-label="Brødsmulesti">
             {{ if .IsHome }}
                 <span>Hjem</span>
@@ -237,6 +237,45 @@
 
                 // 4. FLYTT DET ORIGINALE ELEMENTET INN I WRAPPEREN
                 wrapper.appendChild(el);
+            });
+        });
+
+        // MOBIL MENY LOGIKK
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const overlay = document.getElementById('mobileMenu');
+            const breadcrumbs = document.getElementById('bcContainer');
+            const body = document.body;
+
+            if (burger && overlay && breadcrumbs) {
+                burger.addEventListener('click', function() {
+                    // 1. Toggle klassen "active" på burger elementet
+                    this.classList.toggle('active');
+
+                    // 2. Toggle klassen "hidden" på mobile-overlay
+                    overlay.classList.toggle('hidden');
+
+                    // 3. Toggle klassen "hide" på breadcrumb-container
+                    breadcrumbs.classList.toggle('hide');
+
+                    // Valgfritt: Lås scrolling på body når menyen er åpen
+                    if (!overlay.classList.contains('hidden')) {
+                        body.style.overflow = 'hidden';
+                    } else {
+                        body.style.overflow = 'auto';
+                    }
+                });
+            }
+
+            // Lukk menyen hvis man klikker på en lenke inne i overlayen
+            const menuLinks = document.querySelectorAll('#mobileMenu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    overlay.classList.add('hidden');
+                    breadcrumbs.classList.remove('hide');
+                    body.style.overflow = 'auto';
+                });
             });
         });
      </script>
