@@ -217,8 +217,7 @@ header nav.mobile-overlay ul li a {color:var(--gray); padding: 10px 0px; display
 header nav.mobile-overlay ul li a:hover {color:var(--adark);}
 
 /* content */
-div.three {columns: 2; } 
-div.three { columns:2; }
+div.three { columns: 2; } 
 
 }
 
@@ -231,7 +230,7 @@ div.three { columns:2; }
 /* content */
 /* content */
 div.three { columns: 1; } 
-div.three { columns: 1; }
+div.body-text { columns:1; }
 
 }
     
