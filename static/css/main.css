@@ -212,14 +212,13 @@ header nav.mobile-overlay.hidden { top:160px; opacity:0; z-index:0;}
 header nav.mobile-overlay,
 header nav.mobile-overlay ul,
 header nav.mobile-overlay ul li,
-header nav.mobile-overlay ul li a {display:block;}
+header nav.mobile-overlay ul li a {display:block; font-size:24px;}
 header nav.mobile-overlay ul li a {color:var(--gray); padding: 10px 0px; display: block; width: auto;transition:0.2s;}
 header nav.mobile-overlay ul li a:hover {color:var(--adark);}
 
 /* content */
+div.three {columns: 2; } 
 div.three { columns:2; }
-
-
 
 }
 
@@ -230,7 +229,9 @@ div.three { columns:2; }
 @media (max-width:580px) {
 
 /* content */
-div.three { columns:1; }
+/* content */
+div.three { columns: 1; } 
+div.three { columns: 1; }
 
 }
     
