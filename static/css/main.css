@@ -87,19 +87,20 @@ header .container .logo a { font-size: 1.4em;padding:56px 10px;}
 header .container .logo a sup { font-size: .7em;}
 
 /* Header NAV */
-header .burger {display: none;}
-header nav { display: block; vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
-header nav ul { list-style: none; padding: 0; margin: 0; }
-header nav ul li { display: inline-block; vertical-align: top; margin: 0px -2px;}
-header nav ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0); position: relative;}
-header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
-header nav ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
-header nav ul li a[href*="lofotfisk"],
-header nav ul li a[href*="habygg"],
-header nav ul li a[href*="markedsforing"],
-header nav ul li a[href*="salg"] {display:none;}
-header nav ul li a[href*="arbeider"]:before,
-header nav ul li a[href*="kompetanse"]:before {content:'3';position:absolute; font-size: 12px; bottom:10px; left:10px;}
+header .burger,
+header nav.mobile-overlay {display: none;}
+header nav.screen { display: block; vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
+header nav.screen ul { list-style: none; padding: 0; margin: 0; }
+header nav.screen ul li { display: inline-block; vertical-align: top; margin: 0px -2px;}
+header nav.screen ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0); position: relative;}
+header nav.screen ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
+header nav.screen ul li a.current { background:var(--darkgray); color:var(--bgbright);border-bottom:2px solid var(--gray01);}
+header nav.screen ul li a[href*="lofotfisk"],
+header nav.screen ul li a[href*="habygg"],
+header nav.screen ul li a[href*="markedsforing"],
+header nav.screen ul li a[href*="salg"] {display:none;}
+header nav.screen ul li a[href*="arbeider"]:before,
+header nav.screen ul li a[href*="kompetanse"]:before {content:'3';position:absolute; font-size: 12px; bottom:10px; left:10px;}
 
 /* Header DARK */
 body.dark-mode header { border-bottom:2px solid var(--tr10);}
@@ -186,8 +187,6 @@ div.body-text .element-wrapper:before,
 div.body-text .element-wrapper span {display:none;}
 div.body-text .element-wrapper ul {display:block;width:auto; padding: 10px 0px; }
 
-
-header .burger,
 main.container div.three span,
 footer div span {display: none;}
 
