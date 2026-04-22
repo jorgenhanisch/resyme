@@ -15,7 +15,7 @@
             <div class="logo"><a href="/resyme">Jørgen Hanisch<sup>.no</sup></a></div>
             <!--h1><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1-->
             
-            <nav>
+            <nav class="screen">
                 <ul>
                     <li><a href="/resyme">Hjem</a></li>
 
@@ -41,35 +41,33 @@
                 </ul>
             </nav>
             
-            <div class="mobile-overlay" id="mobileMenu">
-                <nav>
-                    <ul>
-                        <li><a href="/resyme">Hjem</a></li>
-                        
-                        {{ range .Site.Menus.main }}
-                            {{ $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
-                            <li class="mobile-main-item">
-                                <a href="{{ .URL | relURL }}" class="{{ if $isActive }}current{{ end }}">
-                                    {{ .Name }}
-                                </a>
-                                
-                                {{/* Hvis menyelementet har undersider, vis dem her */}}
-                                {{ if .HasChildren }}
-                                    <ul class="mobile-submenu">
-                                        {{ range .Children }}
-                                            <li>
-                                                <a href="{{ .URL | relURL }}" class="{{ if $.IsMenuCurrent "main" . }}current{{ end }}">
-                                                    {{ .Name }}
-                                                </a>
-                                            </li>
-                                        {{ end }}
-                                    </ul>
-                                {{ end }}
-                            </li>
-                        {{ end }}
-                    </ul>
-                </nav>
-            </div>
+            <nav  class="mobile-overlay hidden" id="mobileMenu">
+                <ul>
+                    <li><a href="/resyme">Hjem</a></li>
+                    
+                    {{ range .Site.Menus.main }}
+                        {{ $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+                        <li class="mobile-main-item">
+                            <a href="{{ .URL | relURL }}" class="{{ if $isActive }}current{{ end }}">
+                                {{ .Name }}
+                            </a>
+                            
+                            {{/* Hvis menyelementet har undersider, vis dem her */}}
+                            {{ if .HasChildren }}
+                                <ul class="mobile-submenu">
+                                    {{ range .Children }}
+                                        <li>
+                                            <a href="{{ .URL | relURL }}" class="{{ if $.IsMenuCurrent "main" . }}current{{ end }}">
+                                                {{ .Name }}
+                                            </a>
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            {{ end }}
+                        </li>
+                    {{ end }}
+                </ul>
+            </nav>
             
             <div class="theme-toggle-btn switch" role="button" aria-label="Bytt mellom lyst og mørkt tema" tabindex="0">
                 <img class="switch-icon" src="{{ "images/switch.png" | relURL }}" alt="Tema bytte ikon">
