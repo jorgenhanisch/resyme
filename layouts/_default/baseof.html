@@ -211,25 +211,6 @@
                 wrapper.appendChild(el);
             });
         });
-
-        // --- MOBILMENY LOGIKK ---
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('header nav ul');
-        // Endre navnet her fra navLinks til mobileNavLinks
-        const mobileNavLinks = document.querySelectorAll('header nav ul li'); 
-
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('nav-active');
-            burger.classList.toggle('toggle');
-        });
-
-        // Bruk det nye navnet her også
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('nav-active');
-                burger.classList.remove('toggle');
-            });
-        });
      </script>
 </body>
 </html>

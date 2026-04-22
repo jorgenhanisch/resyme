@@ -197,48 +197,9 @@ footer div span {display: none;}
 @media (max-width:960px) {
 
 /* NAV */
-header nav ul {
-position: fixed;
-left: -100%; /* Gjemmer menyen utenfor venstre side */
-top: 0;
-flex-direction: column;
-background-color: var(--bg-color, #fff); /* Bruker din variabel eller hvit */
-width: 100%;
-height: 100vh;
-justify-content: center;
-align-items: center;
-transition: 0.3s;
-z-index: 1000;
-gap: 30px;
-}
-
-/* Når menyen er aktiv (via JS) */
-header nav ul.nav-active {
-left: 0;
-}
-
-/* Vis burger-ikonet */
-.burger {
-display: block !important;
-cursor: pointer;
-z-index: 1100;
-position: relative;
-}
-
-/* Burger-animasjon når den er åpen */
-.toggle .line-one { transform: rotate(-45deg) translate(-5px, 6px); }
-.toggle .line-two { opacity: 0; }
-.toggle .line-three { transform: rotate(45deg) translate(-5px, -6px); }
-
-/* Juster brødsmuler og undermeny for mobil */
-.breadcrumb-container {
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-}
-
-}
-
+header .burger {display: inline-block; width: 40px; height:21px;}
+header .burger div {display:block; width:auto; height:4px;margin-bottom:3px; background: var(--abright);}
+body.dark-mode header .burger div { background: var(--adark);}
 
 /* content */
 div.three { columns:2; }
