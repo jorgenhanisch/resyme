@@ -89,7 +89,7 @@ header .container .logo a sup { font-size: .7em;}
 /* Header NAV */
 header .burger,
 header nav.mobile-overlay {display: none;}
-header nav.screen { display: block; vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
+header nav.screen { vertical-align: top; margin: 0px auto; width: 62%; text-align: center; margin-top: 0px; position: absolute; top: 0; right: 10%; left: 10%;}
 header nav.screen ul { list-style: none; padding: 0; margin: 0; }
 header nav.screen ul li { display: inline-block; vertical-align: top; margin: 0px -2px;}
 header nav.screen ul li a { text-decoration: none; color: var(--abright); width:120px; border-bottom:2px solid rgba(0,0,0,0); position: relative;}
