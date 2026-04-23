@@ -17,7 +17,7 @@
             
             <nav class="screen" >
                 <ul>
-                    <li><a href="/resyme">Hjem</a></li>
+                    <li><a href="/">Hjem</a></li>
 
                     {{ range .Site.Menus.main }}
                     <li>
@@ -37,13 +37,13 @@
                     </li>
                     {{ end }}
                     
-                    <li><a href="/resyme/kontakt/">Kontakt</a></li>
+                    <li><a href="/kontakt/">Kontakt</a></li>
                 </ul>
             </nav>
             
             <nav  class="mobile-overlay hidden" id="mobileMenu">
                 <ul>
-                    <li><a href="/resyme">Hjem</a></li>
+                    <li><a href="/">Hjem</a></li>
                     
                     {{ range .Site.Menus.main }}
                         {{ $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
@@ -66,6 +66,8 @@
                             {{ end }}
                         </li>
                     {{ end }}
+                    <li><a href="/kontakt/">Kontakt</a></li>
+
                 </ul>
             </nav>
             
