@@ -222,7 +222,7 @@ header nav.mobile-overlay ul li a:hover {color:var(--adark);}
 /* Header DARK */
 body.dark-mode header nav.mobile-overlay ul li a { color: var(--lightgray); border-bottom:2px solid var(--gray01);}
 body.dark-mode header nav.mobile-overlay ul li a:hover,
-body.dark-mode header nav.mobile-overlay ul li a.current { color:var(--bgbright); border-bottom:2px solid var(--gray50);}
+body.dark-mode header nav.mobile-overlay ul li a.current { background:transparent; color:var(--bgbright); border-bottom:2px solid var(--gray50);}
 
 /* content */
 div.three { columns: 2; } 
