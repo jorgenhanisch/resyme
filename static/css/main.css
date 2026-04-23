@@ -219,6 +219,11 @@ header nav.mobile-overlay ul li a {display:block; font-size:24px;}
 header nav.mobile-overlay ul li a {color:var(--gray); padding: 10px 0px; display: block; width: auto;transition:0.2s;}
 header nav.mobile-overlay ul li a:hover {color:var(--adark);}
 
+/* Header DARK */
+body.dark-mode nav.header ul li a { color: var(--lightgray); border-bottom:2px solid var(--gray01);}
+body.dark-mode nav.header ul li a:hover { color:var(--bgbright); border-bottom:2px solid var(--gray);}
+body.dark-mode nav.header ul li a.current { background:var(--bgbright); color:var(--abright);border-bottom:2px solid var(--gray01);}
+
 /* content */
 div.three { columns: 2; } 
 
