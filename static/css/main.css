@@ -72,7 +72,8 @@ body.dark-mode a { color: var(--adark);}
 /********************************************************************/
 /* footer */
 footer {padding:40px 40px; margin: top 100px !important;}
-footer .container {columns:4; padding-top:100px;  border-top:1px solid var(--gray25);}
+footer .container {padding-top:60px;  border-top:1px solid var(--gray25);}
+footer .container p {display:inline-block;margin:10px 10px;}
 
 
 /********************************************************************/
