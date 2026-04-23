@@ -83,7 +83,7 @@ header a { display:block; font-weight: 500; padding:60px 10px; }
 header a:hover { text-decoration: none;}
 header .container { display: block; position: relative; }
 header .container .logo { display: inline-block; margin: 0px; padding-left:30px;}
-header .container .logo a { font-size: 1.4em;padding:56px 10px;}
+header .container .logo a { font-size: 1.4em;padding:60px 10px;}
 header .container .logo a sup { font-size: .7em;}
 
 /* Header NAV */
@@ -174,7 +174,7 @@ div.three {columns: 3;gap: 60px; padding: 50px 0px; border-top:1px solid var(--g
 .element-wrapper span.css-tag-display {position: absolute;bottom: 0px; right: 0px;}
 
 
-div.body-text { columns:2; gap:100px; padding: 30px 0px; border-top:1px solid var(--gray01); }
+div.body-text { columns:2; gap:60px; padding: 30px 0px; border-top:1px solid var(--gray01); }
 div.body-text p {margin:0px 0% 0px 0%; padding:10px 0px; margin:0px 0px; vertical-align: top;list-style: none;  break-inside: avoid;}
 div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid;}
 div.body-text ul li { padding: 16px 0px; border-bottom: 1px solid var(--gray25);}
