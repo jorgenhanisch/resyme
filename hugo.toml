@@ -1,4 +1,5 @@
-baseURL = 'https://jorgenhanisch.github.io/resyme/'
+baseURL = 'https://jorgenhanisch.no/'
+# (baseURL = 'https://jorgenhanisch.github.io/resyme/')
 locale = 'nb-no'
 title = 'Resyme'
 theme = 'blank'
