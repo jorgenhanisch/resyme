@@ -127,7 +127,7 @@ body.dark-mode .switch-icon { }
 .breadcrumb-container {display:block; width: 100%; max-width: 2000px; margin:0px auto; }
 .breadcrumbs { display: inline-block;padding: 0px 40px; margin:0px 0px; }
 .breadcrumb-container  span,
-.breadcrumb-container a { display:inline-block; padding: 20px 0px 18px 0px; margin-right: 40px; vertical-align:top; border-bottom: 2px solid rgba(0,0,0,0); transition:0.2s;}
+.breadcrumb-container a { display:inline-block; padding: 23px 0px 18px 0px; margin-right: 40px; vertical-align:top; border-bottom: 2px solid rgba(0,0,0,0); transition:0.2s;}
 .breadcrumb-container a:hover { text-decoration: none; border-bottom: 2px solid var(--gray); }
 .breadcrumb-container a.active.current { text-decoration: none; border-bottom: 2px solid var(--gray); }
 
