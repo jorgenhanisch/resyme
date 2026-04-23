@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <title>
+        {{ if .IsHome }} {{/* Forsiden */}} Jørgen Hanisch | Web, salg og markedsføring på nett
+        {{ else if .IsSection }} {{/* Kategorisider */}} Jørgen Hanisch | {{ .Title }} | {{ range (index .Site.Menus "main") }}{{ if eq ($.Section | lower) (.Identifier | lower) }}{{ .Name }}{{ end }}{{ end }}
+        {{ else }} {{/* Vanlige sider */}} Jørgen Hanisch | {{ .Title }} {{ end }}
+    </title>
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

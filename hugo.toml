@@ -1,7 +1,7 @@
 baseURL = 'https://jorgenhanisch.no/'
 # (baseURL = 'https://jorgenhanisch.github.io/resyme/')
 locale = 'nb-no'
-title = 'Resyme'
+title = 'Jørgen Hanisch'
 theme = 'blank'
 [params]
   sanityUrl = "https://gukxnj2e.api.sanity.io/v2021-10-21/data/query/production?query=*[_type == 'post']"
