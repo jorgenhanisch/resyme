@@ -237,16 +237,22 @@ div.three { columns: 2; }
 @media (max-width:580px) {
 
 /* Basics */
-h1 { font-size: 45px;}
-h2 { font-size: 25px;}
+body { font-size: 14px; }
+h1 { font-size: 45px; padding:10px 0px 30px 0px;}
+h2 { font-size: 25px; padding:10px 0px 30px 0px;}
     
 /* footer */
 footer .container p {display:block; margin: 10px 10px 10px 0px;}
 foter {padding: 30px;}
 
+/* Header */
+header .container .logo a {padding: 30px 0px;}
+header .burger {top: 37px; right: 70px; }
+.theme-toggle-btn { top: 38px; right: 30px;}
+    
 /* content */
 main.container { padding: 0px 30px 30px 30px;}
-div.three { columns: 1; } 
+div.three { columns: 1; padding: 0px; } 
 div.body-text { columns:1; }
 
 /* CSS pynt */ 
