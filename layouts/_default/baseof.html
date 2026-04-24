@@ -21,21 +21,32 @@
         Jørgen Hanisch | {{ .Title }}
       {{ end }}
     </title>
-    {{/* Sett en standardbeskrivelse for forsiden og sider som mangler i JSON */}}
-    {{ $desc := "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid" }}
+    {{/* 1. Definer en variabel for beskrivelsen */}}
+    {{ $desc := "" }}
     
-    {{/* Prøv å hente spesifikk beskrivelse hvis siden finnes i JSON */}}
-    {{ $data := getJSON "data/resyme_data.json" }}
-    {{ $currentSlug := .File.TranslationBaseName }}
-    
-    {{ range $data.result }}
-      {{ if eq .slug.current $currentSlug }}
-        {{ if .metaDescription }}
-          {{ $desc = .metaDescription }}
+    {{/* 2. Sjekk hvilken side vi er på og sett manuell tekst */}}
+    {{ if .IsHome }}
+        {{ $desc = "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
+    {{ else if eq .Section "arbeider" }}
+        {{ $desc = "Se noen utvalgte arbeider og prosjekter for Automedia, HABygg og Lofotfisk." }}
+    {{ else if eq .Section "kompetanse" }}
+        {{ $desc = "Kunnskapen min spenner seg over flere områder, blant annet Web, markedsføring og salg" }}
+    {{ else }}
+        {{/* 3. For alle andre sider (Kontakt osv.), hent fra JSON */}}
+        {{ $desc = "Her finner du litt informasjon om mine profesjonelle kunnskaper" }} {{/* Fallback */}}
+        {{ $data := getJSON "data/resyme_data.json" }}
+        {{ $currentSlug := .File.TranslationBaseName }}
+        
+        {{ range $data.result }}
+            {{ if eq .slug.current $currentSlug }}
+                {{ if .metaDescription }}
+                    {{ $desc = .metaDescription }}
+                {{ end }}
+            {{ end }}
         {{ end }}
-      {{ end }}
     {{ end }}
     
+    {{/* 4. Skriv ut taggen */}}    
     <meta name="description" content="{{ $desc }}">
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 </head>
