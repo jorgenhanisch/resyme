@@ -19,8 +19,8 @@ p { border:1px solid brown; }
     --logodark:yellow;
   
     --bgbright:white;
-    --pbright:#444;
-    --abright:#222;
+    --pbright:#555;
+    --abright:#111;
     --logobright:magenta;
     
     --brightgray:#eee;
@@ -71,9 +71,10 @@ body.dark-mode a { color: var(--adark);}
 
 /********************************************************************/
 /* footer */
-footer {padding:40px 40px; margin: top 100px !important;}
+footer {padding: 40px 40px;}
 footer .container {padding-top:60px;}
-footer .container p {display:inline-block;margin:10px 20px 10px 0px;}
+footer .container p {display:inline-block;margin: 10px 20px 10px 0px;}
+footer .container a:hover {text-decoration: underline;}
 
 
 /********************************************************************/
@@ -241,6 +242,7 @@ h2 { font-size: 25px;}
     
 /* footer */
 footer .container p {display:block; margin: 10px 10px 10px 0px;}
+foter {padding: 30px;}
 
 /* content */
 main.container { padding: 0px 30px 30px 30px;}
