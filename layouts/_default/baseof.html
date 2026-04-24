@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {{ if .IsHome }} {{/* Forsiden */}} Jørgen Hanisch | Web, salg og markedsføring på nett
-        {{ else if .IsSection }} {{/* Kategorisider */}} Jørgen Hanisch | {{ .Title }} | {{ range (index .Site.Menus "main") }}{{ if eq ($.Section | lower) (.Identifier | lower) }}{{ .Name }}{{ end }}{{ end }}
-        {{ else }} {{/* Vanlige sider */}} Jørgen Hanisch | {{ .Title }} {{ end }}
+      {{ if .IsHome }}
+        {{/* 1. Forsiden */}}
+        Jørgen Hanisch | Web, salg og markedsføring på nett
+      {{ else if .IsSection }}
+        {{/* 2. Kategorisider (f.eks. Arbeider eller Kompetanse) */}}
+        {{ if eq .Section "arbeider" }}
+            Jørgen Hanisch | Arbeider | Automedia
+        {{ else if eq .Section "kompetanse" }}
+            Jørgen Hanisch | Kompetanse | Web
+        {{ else }}
+            Jørgen Hanisch | {{ .Title }}
+        {{ end }}
+      {{ else }}
+        {{/* 3. Vanlige sider (Kontakt osv. - de som ligger i JSON) */}}
+        Jørgen Hanisch | {{ .Title }}
+      {{ end }}
     </title>
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 </head>
