@@ -217,9 +217,6 @@ div.three {columns: 3;gap: 60px; padding: 50px 0px; border-top:1px solid var(--g
 
 /********************************************************************/
 /* CSS Pynt*/
-
-
-/* CSS Pynt forside*/
 .element-wrapper {margin-bottom:-1px;position: relative; border-top:1px solid var(--gray01);  vertical-align: top; break-inside: avoid; transition:.2s;}
 /* .element-wrapper:hover {border-top:1px solid var(--gray); border-bottom:1px solid var(--gray);} */
 .element-wrapper span {display: inline-block; opacity:0; position:relative;width:auto;font-size:10px;margin:10px;transition: .2s;}
@@ -250,13 +247,29 @@ main.container div.three span,
 footer div span {display: none;}
 
 /* skryt */
-.psi {text-align:enter; margin:50px;}
-.psi header a {display:inline-block;padding:10px 10px 10px 60px; margin:10px;}
-
-.psi ul {text-align:enter;}
-.psi ul li {display:inline-block; }
-.psi ul li span {display:block; font-size:20px; width:100px; height:100px; border:5px solid var(--gray); background:var(--lightgray); border-radius:50%; margin-bottom:20px;}
-
+.psi {text-align:center; margin:50px;}
+.psi a.select {
+    display:inline-block; 
+    padding:10px 10px 10px 60px; 
+    margin:10px;
+    background-position:10px 10px;
+    background-size:24px;
+}
+.psi a.select.mobile {background-image:url('/images/mobile-icon.png');}
+.psi a.select.desktop {background-image:url('/images/desktop-icon.png');}
+.psi ul {text-align:center;}
+.psi ul li {display:inline-block; margin:0px 40px;}
+.psi ul li span {
+    display:block; 
+    font-size:20px; 
+    width: 34px;
+    height: 34px;
+    border: 4px solid var(--lightgray);
+    background: var(--brightgray);
+    border-radius: 50%;
+    margin: 20px auto;
+    padding: 12px 7px 0px 5px;
+}
 
 /********************************************************************/
 /* Pad */
@@ -440,8 +453,9 @@ div.body-text { columns:1; }
 
     <div class="psi">
         <div class="header">
-            <a class="select mobile">Mobile</a>
-            <a class="select desktop">Desktop</a>
+            <h3>Resulater fra Page Speed Insights</h3>
+            <a class="select mobile" target="blank" href="https://pagespeed.web.dev/analysis/https-jorgenhanisch-no/5becc7yrn9?form_factor=mobile" >Mobile</a>
+            <a class="select desktop" target="blank" href="https://pagespeed.web.dev/analysis/https-jorgenhanisch-no/5becc7yrn9?form_factor=desktop">Desktop</a>
         </div>
         <div class="numbers">
             <ul>
