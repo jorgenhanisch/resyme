@@ -236,16 +236,24 @@ div.three { columns: 2; }
 @media (max-width:580px) {
 
 /* Basics */
-h1 { font-size:60px;}
-h2 { font-size:30px;}
-
+h1 { font-size: 45px;}
+h2 { font-size: 25px;}
+    
 /* footer */
-footer .container p {display:block;margin:10px 10px 10px 0px;}
+footer .container p {display:block; margin: 10px 10px 10px 0px;}
 
 /* content */
+main.container { padding: 0px 30px 30px 30px;}
 div.three { columns: 1; } 
 div.body-text { columns:1; }
 
+/* CSS pynt */ 
+.element-wrapper:before { display:none;}
+.element-wrapper span { margin: 5px; }
+.element-wrapper span.css-tag-font-family { position:absolute; right:35%; }
+.element-wrapper span.css-tag-color { position: absolute; right: 0%; }
+.element-wrapper span.css-tag-font-weight { position: absolute; left: 0%; bottom:0px; }
+.element-wrapper span.css-tag-line-height { position: absolute; right: 35%; bottom:0px; }
 }
     
     
