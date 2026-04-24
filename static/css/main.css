@@ -110,7 +110,7 @@ header nav.screen ul li a[href*="kompetanse"]:before {content:'3';position:absol
 body.dark-mode header { border-bottom:2px solid var(--tr10);}
 body.dark-mode header .container .logo a { color: var(--adark); }
 body.dark-mode header nav ul li a { color: var(--lightgray); border-bottom:2px solid var(--gray01);}
-body.dark-mode header nav ul li a:hover { color:var(--bgdark); border-bottom:2px solid var(--gray);}
+body.dark-mode header nav ul li a:hover { color:var(--lightgray); border-bottom:2px solid var(--gray);}
 body.dark-mode header nav ul li a.current { background:var(--adark); color:var(--abright);border-bottom:2px solid var(--gray01);}
 
 /* Switch */
