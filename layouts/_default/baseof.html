@@ -21,6 +21,22 @@
         Jørgen Hanisch | {{ .Title }}
       {{ end }}
     </title>
+    {{/* Sett en standardbeskrivelse for forsiden og sider som mangler i JSON */}}
+    {{ $desc := "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid" }}
+    
+    {{/* Prøv å hente spesifikk beskrivelse hvis siden finnes i JSON */}}
+    {{ $data := getJSON "data/resyme_data.json" }}
+    {{ $currentSlug := .File.TranslationBaseName }}
+    
+    {{ range $data.result }}
+      {{ if eq .slug.current $currentSlug }}
+        {{ if .metaDescription }}
+          {{ $desc = .metaDescription }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    <meta name="description" content="{{ $desc }}">
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 </head>
 <body>
