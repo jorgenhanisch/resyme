@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
       {{ if .IsHome }}
-        {{/* 1. Forsiden */}}
         Jørgen Hanisch | Web, salg og markedsføring på nett
       {{ else if .IsSection }}
-        {{/* 2. Kategorisider (f.eks. Arbeider eller Kompetanse) */}}
         {{ if eq .Section "arbeider" }}
             Jørgen Hanisch | Arbeider | Automedia
         {{ else if eq .Section "kompetanse" }}
@@ -17,31 +15,32 @@
             Jørgen Hanisch | {{ .Title }}
         {{ end }}
       {{ else }}
-        {{/* 3. Vanlige sider (Kontakt osv. - de som ligger i JSON) */}}
         Jørgen Hanisch | {{ .Title }}
       {{ end }}
     </title>
 
-    {{/* 1. Definer en standardbeskrivelse */}}
+    {{/* 1. Definer standardbeskrivelse */}}
     {{ $metaDesc := "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
     
-    {{/* 2. Sjekk for spesifikke seksjoner manuelt */}}
+    {{/* 2. Logikk for beskrivelse */}}
     {{ if .IsHome }}
         {{ $metaDesc = "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
     {{ else if eq .Section "arbeider" }}
         {{ $metaDesc = "Se noen utvalgte arbeider og prosjekter for Automedia, HABygg og Lofotfisk." }}
     {{ else if eq .Section "kompetanse" }}
-        {{ $metaDesc = "Her finner du litt informasjon om mine profesjonelle kunnskaper" }}
+        {{ $metaDesc = "Her finner du litt informasjon om mine profesjonelle kunnskaper innen web og salg." }}
     {{ else }}
-        {{/* 3. For andre sider, prøv å hente fra resyme_data.json */}}
-        {{ $currentSlug := .File.TranslationBaseName }}
+        {{/* 3. Hent fra resyme_data.json kun hvis filen finnes */}}
+        {{ $currentSlug := "" }}
+        {{ if .File }}
+            {{ $currentSlug = .File.TranslationBaseName }}
+        {{ else }}
+            {{ $currentSlug = .Title | urlize }}
+        {{ end }}
         
-        {{/* Vi henter data fra /data/resyme_data.json via Hugo sin Site.Data-funksjon */}}
-        {{ $resymeData := .Site.Data.resyme_data }}
-        
-        {{ if $resymeData }}
-            {{ range $resymeData.result }}
-                {{ if eq .slug.current $currentSlug }}
+        {{ if .Site.Data.resyme_data }}
+            {{ range .Site.Data.resyme_data.result }}
+                {{ if and .slug (eq .slug.current $currentSlug) }}
                     {{ if .metaDescription }}
                         {{ $metaDesc = .metaDescription }}
                     {{ end }}
@@ -50,9 +49,7 @@
         {{ end }}
     {{ end }}
     
-    {{/* 4. Skriv ut selve meta-taggen */}}
     <meta name="description" content="{{ $metaDesc }}">
-    
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 </head>
 <body>
