@@ -21,33 +21,38 @@
         Jørgen Hanisch | {{ .Title }}
       {{ end }}
     </title>
-    {{/* 1. Definer en variabel for beskrivelsen */}}
-    {{ $desc := "" }}
+
+    {{/* 1. Definer en standardbeskrivelse */}}
+    {{ $metaDesc := "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
     
-    {{/* 2. Sjekk hvilken side vi er på og sett manuell tekst */}}
+    {{/* 2. Sjekk for spesifikke seksjoner manuelt */}}
     {{ if .IsHome }}
-        {{ $desc = "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
+        {{ $metaDesc = "Salg og synlighet kan kjøpes, men langsiktig tilstedeværelse krever kontinuerlig arbeid." }}
     {{ else if eq .Section "arbeider" }}
-        {{ $desc = "Se noen utvalgte arbeider og prosjekter for Automedia, HABygg og Lofotfisk." }}
+        {{ $metaDesc = "Se noen utvalgte arbeider og prosjekter for Automedia, HABygg og Lofotfisk." }}
     {{ else if eq .Section "kompetanse" }}
-        {{ $desc = "Kunnskapen min spenner seg over flere områder, blant annet Web, markedsføring og salg" }}
+        {{ $metaDesc = "Her finner du litt informasjon om mine profesjonelle kunnskaper" }}
     {{ else }}
-        {{/* 3. For alle andre sider (Kontakt osv.), hent fra JSON */}}
-        {{ $desc = "Her finner du litt informasjon om mine profesjonelle kunnskaper" }} {{/* Fallback */}}
-        {{ $data := getJSON "data/resyme_data.json" }}
+        {{/* 3. For andre sider, prøv å hente fra resyme_data.json */}}
         {{ $currentSlug := .File.TranslationBaseName }}
         
-        {{ range $data.result }}
-            {{ if eq .slug.current $currentSlug }}
-                {{ if .metaDescription }}
-                    {{ $desc = .metaDescription }}
+        {{/* Vi henter data fra /data/resyme_data.json via Hugo sin Site.Data-funksjon */}}
+        {{ $resymeData := .Site.Data.resyme_data }}
+        
+        {{ if $resymeData }}
+            {{ range $resymeData.result }}
+                {{ if eq .slug.current $currentSlug }}
+                    {{ if .metaDescription }}
+                        {{ $metaDesc = .metaDescription }}
+                    {{ end }}
                 {{ end }}
             {{ end }}
         {{ end }}
     {{ end }}
     
-    {{/* 4. Skriv ut taggen */}}    
-    <meta name="description" content="{{ $desc }}">
+    {{/* 4. Skriv ut selve meta-taggen */}}
+    <meta name="description" content="{{ $metaDesc }}">
+    
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 </head>
 <body>
