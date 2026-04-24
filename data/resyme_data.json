@@ -501,11 +501,12 @@
           "_type": "slug",
           "current": "kompetanse"
         },
-        "title": "Kompetanse",
+         "title": "Kompetanse",
         "metaDescription": "Din tekst her."
       }
     ],
     "syncTags": [
       "s1:bciWDg"
     ],
-  }
+    "ms": 6
+}
