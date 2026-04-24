@@ -250,10 +250,10 @@ div.body-text { columns:1; }
 /* CSS pynt */ 
 .element-wrapper:before { display:none;}
 .element-wrapper span { margin: 5px; }
-.element-wrapper span.css-tag-font-family { position:absolute; right:35%; }
+.element-wrapper span.css-tag-font-family { position:absolute; left:35%; }
 .element-wrapper span.css-tag-color { position: absolute; right: 0%; }
-.element-wrapper span.css-tag-font-weight { position: absolute; left: 0%; bottom:0px; }
-.element-wrapper span.css-tag-line-height { position: absolute; right: 35%; bottom:0px; }
+.element-wrapper span.css-tag-font-weight { position: absolute; left: 35%; bottom:0px; }
+.element-wrapper span.css-tag-line-height { position: absolute; left: 0%; bottom:0px; }
 }
     
     
