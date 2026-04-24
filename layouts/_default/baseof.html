@@ -232,7 +232,7 @@ div.three {columns: 3;gap: 60px; padding: 50px 0px; border-top:1px solid var(--g
 .element-wrapper span.css-tag-line-height {position: absolute;bottom: 0px; left: 0px;}
 .element-wrapper span.css-tag-display {position: absolute;bottom: 0px; right: 0px;}
 
-
+/* body text undersider */
 div.body-text { columns:2; gap:60px; padding: 30px 0px; border-top:1px solid var(--gray01); }
 div.body-text p {margin:0px 0% 0px 0%; padding:10px 0px; margin:0px 0px; vertical-align: top;list-style: none;  break-inside: avoid;}
 div.body-text ul { padding: 10px 0px; margin:0px; vertical-align: top; list-style: none; break-inside: avoid;}
@@ -248,6 +248,14 @@ div.body-text .element-wrapper ul {display:block;width:auto; padding: 10px 0px; 
 
 main.container div.three span,
 footer div span {display: none;}
+
+/* skryt */
+.psi {text-align:enter; margin:50px;}
+.psi header a {display:inline-block;padding:10px 10px 10px 60px; margin:10px;}
+
+.psi ul {text-align:enter;}
+.psi ul li {display:inline-block; }
+.psi ul li span {display:block; font-size:20px; width:100px; height:100px; border:5px solid var(--gray); background:var(--lightgray); border-radius:50%; margin-bottom:20px;}
 
 
 /********************************************************************/
@@ -430,6 +438,20 @@ div.body-text { columns:1; }
         {{ block "main" . }}{{ end }}
     </main>
 
+    <div class="psi">
+        <div class="header">
+            <a class="select mobile">Mobile</a>
+            <a class="select desktop">Desktop</a>
+        </div>
+        <div class="numbers">
+            <ul>
+                <li><span>100</span>Performance</li>
+                <li><span>100</span>Accessibility</li>
+                <li><span>100</span>Best Practices</li>
+                <li><span>100</span>SEO</li>
+            </ul>    
+        </div>
+    </div>
     <footer>
         <div class="container">
             <p>&copy; {{ now.Format "2006" }} Jørgen Hanisch</p>
