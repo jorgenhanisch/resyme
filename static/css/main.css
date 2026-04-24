@@ -221,12 +221,8 @@ header nav.mobile-overlay ul,
 header nav.mobile-overlay ul li {display:block; padding:0px;margin:0px;}
 header nav.mobile-overlay ul li a { display:block; padding: 10px 0px; font-size: 24px; color: var(--lightgray); border-bottom:2px solid var(--gray01); }
 header nav.mobile-overlay ul li a:hover,
-header nav.mobile-overlay ul li a.current { background:transparent; color:var(--bgbright); border-bottom:2px solid var(--gray50);}
+header nav.mobile-overlay ul li a.current { background:transparent!important; color:var(--bgbright)!important; border-bottom:2px solid var(--gray50);}
 header nav.mobile-overlay ul.mobile-submenu {padding:0px 20px;}
-
-/* Header DARK */
-body.dark-mode header nav ul li a:hover { color:var(--bgbright); }
-body.dark-mode header nav ul li a.current { background:var(--abright); }
 
 /* content */
 div.three { columns: 2; } 
