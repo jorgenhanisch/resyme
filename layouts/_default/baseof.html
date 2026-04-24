@@ -250,6 +250,7 @@ footer div span {display: none;}
 .psi {text-align:center; margin:50px;}
 .psi a.select {
     display:inline-block; 
+    width: 60px;
     padding:20px 30px 20px 50px; 
     margin:10px;
     background-position:15px 17px;
@@ -260,7 +261,7 @@ footer div span {display: none;}
 .psi a.select.mobile {background-image:url('/images/mobile-icon.png');}
 .psi a.select.desktop {background-image:url('/images/desktop-icon.png');}
 .psi ul {text-align:center; margin:0px; padding:0px;}
-.psi ul li {display:inline-block; margin:0px 40px;}
+.psi ul li {display:inline-block; width: 110px; margin:0px 10px;}
 .psi ul li span {
     display:block; 
     font-size:20px; 
@@ -271,7 +272,11 @@ footer div span {display: none;}
     border-radius: 50%;
     margin: 20px auto;
     padding: 12px 7px 0px 5px;
+    transition: 0.2s;
 }
+.psi ul li span:hover { border: 4px solid var(--green);}
+body.dark-mode .psi ul li span { border: 4px solid var(--lightgray); background: var(--darkgray); }
+
 
 /********************************************************************/
 /* Pad */
