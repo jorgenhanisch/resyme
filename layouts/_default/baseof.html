@@ -250,14 +250,16 @@ footer div span {display: none;}
 .psi {text-align:center; margin:50px;}
 .psi a.select {
     display:inline-block; 
-    padding:10px 10px 10px 60px; 
+    padding:10px 10px 10px 40px; 
     margin:10px;
     background-position:10px 10px;
     background-size:24px;
+    background-repeat:no-repeat;
 }
+.psi a.select:hover {background-color: var(--brightgray);text-decoration:none; }
 .psi a.select.mobile {background-image:url('/images/mobile-icon.png');}
 .psi a.select.desktop {background-image:url('/images/desktop-icon.png');}
-.psi ul {text-align:center;}
+.psi ul {text-align:center; margin:0px; padding:0px;}
 .psi ul li {display:inline-block; margin:0px 40px;}
 .psi ul li span {
     display:block; 
